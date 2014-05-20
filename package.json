@@ -1,0 +1,44 @@
+{
+  "name": "rrouter",
+  "version": "0.0.0",
+  "description": "React Router",
+  "main": "./lib/index.js",
+  "dependencies": {
+    "reactify": "^0.13.1",
+    "envify": "^1.2.1"
+  },
+  "peerDependencies": {
+    "bluebird": "^1.2.4",
+    "react": "^0.10.0",
+    "url-pattern": "^0.6.0"
+  },
+  "devDependencies": {
+    "bluebird": "^1.2.4",
+    "react": "^0.10.0",
+    "url-pattern": "^0.6.0",
+    "mocha": "^1.19.0",
+    "eslint-jsx": "git+https://github.com/andreypopp/eslint#jsx"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andreypopp/rrouter"
+  },
+  "keywords": [
+    "react",
+    "router"
+  ],
+  "browserify": {
+    "transform": [
+      ["reactify", {"es6": true}]
+    ]
+  },
+  "author": "Andrey Popp <8mayday@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andreypopp/rrouter/issues"
+  },
+  "homepage": "https://github.com/andreypopp/rrouter"
+}
