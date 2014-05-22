@@ -1,0 +1,27 @@
+.codeblock,
+pre.literal-block,
+.rst-content .literal-block,
+.rst-content pre.literal-block,
+div[class^='highlight'] {
+  border: none;
+  border-left: 1px solid #f1f1f1;
+}
+
+code,
+.rst-content tt {
+  border: none;
+}
+
+hr {
+  border-top: 1px solid #f1f1f1;
+}
+
+.wy-breadcrumbs,
+.wy-breadcrumbs + hr,
+.wy-breadcrumbs li.wy-breadcrumbs-aside {
+  display: none;
+}
+
+footer {
+  font-size: 80%;
+}
