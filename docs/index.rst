@@ -11,4 +11,5 @@ RRouter provides a declarative router for React applications.
    navigation
    data-fetching
    server-side-rendering
+   composing-routes
    examples/index
