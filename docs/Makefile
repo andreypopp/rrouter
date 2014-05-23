@@ -49,7 +49,14 @@ help:
 clean:
 	rm -rf $(BUILDDIR)/*
 
-html:
+_static/bundle.js: ../lib/*.js ../lib/routing/*.js
+	browserify -d \
+		-r bluebird:bluebird \
+		-r ../:rrouter \
+		-r react:react \
+		> $@
+
+html: _static/bundle.js
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
