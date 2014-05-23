@@ -14,10 +14,10 @@
   },
   "devDependencies": {
     "bluebird": "^1.2.4",
-    "react": "^0.10.0",
-    "url-pattern": "^0.6.0",
+    "eslint-jsx": "git+https://github.com/andreypopp/eslint#jsx",
     "mocha": "^1.19.0",
-    "eslint-jsx": "git+https://github.com/andreypopp/eslint#jsx"
+    "react": "^0.10.0",
+    "url-pattern": "^0.6.0"
   },
   "scripts": {
     "test": "mocha"
@@ -32,7 +32,12 @@
   ],
   "browserify": {
     "transform": [
-      ["reactify", {"es6": true}]
+      [
+        "reactify",
+        {
+          "es6": true
+        }
+      ]
     ]
   },
   "author": "Andrey Popp <8mayday@gmail.com>",
