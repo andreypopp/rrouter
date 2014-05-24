@@ -34,6 +34,10 @@ footer .rst-footer-buttons {
   text-align: left;
 }
 
+.admonition p {
+  font-size: 90%;
+  line-height: 1.5em;
+}
 .admonition .admonition-title {
   background: none !important;
   color: #9E9D9D !important;
