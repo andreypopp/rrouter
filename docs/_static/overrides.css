@@ -23,5 +23,29 @@ hr {
 }
 
 footer {
-  font-size: 80%;
+  font-size: 70%;
+  text-align: center;
+}
+footer .rst-footer-buttons {
+  text-align: left;
+}
+
+.admonition .admonition-title {
+  background: none !important;
+  color: #9E9D9D !important;
+  text-transform: uppercase;
+  padding: 10px;
+  font-size: 70%;
+}
+.admonition .admonition-title:before {
+  content: normal;
+}
+
+@media (min-width: 1100px) {
+  .admonition.inline {
+    float: right;
+    margin-right: -50px;
+    margin-left: 20px;
+    width: 40%;
+  }
 }
