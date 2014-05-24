@@ -9,6 +9,7 @@ Master-detail example
         var Promise = require('bluebird')
         var React = require('react')
         var RRouter = require('rrouter')
+        var Routes = RRouter.Routes
         var Route = RRouter.Route
         var Link = RRouter.Link
 
@@ -17,7 +18,7 @@ Master-detail example
           render: function() {
             var items = [1, 2, 3, 4, 5].map(function(id, index) {
               return React.DOM.li({key: index},
-                Link({to: '/master/detail', id: id}, id))
+                Link({to: 'master/detail', id: id}, id))
             })
             return React.DOM.ul(null, items)
           }
@@ -46,7 +47,7 @@ Master-detail example
           })
         }
 
-        var routes = Route(null,
+        var routes = Routes(null,
           Route({name: 'master', path: '/', view: View},
             Route({name: 'detail', path: ':id', promiseItem: getItem, view: View})
           )

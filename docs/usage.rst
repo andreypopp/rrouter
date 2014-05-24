@@ -26,6 +26,7 @@ First, we need to bring ``React`` and ``RRouter`` into scope::
 
     var React = require('react')
     var RRouter = require('rrouter')
+    var Routes = RRouter.Routes
     var Route = RRouter.Route
 
 Now we are going to define routes for two URLs, ``/`` and ``about``. We need to
@@ -46,10 +47,10 @@ define React component first which will serve as views for those URLs::
 Now we define routes using familiar JSX syntax::
 
     var routes = (
-      <Route>
+      <Routes>
         <Route path="/" view={MainPage} />
         <Route path="/about" view={AboutPage} />
-      </Route>
+      </Routes>
     )
 
 The ``MainPage`` and ``AboutPage`` will be rendered when browser hits ``/`` or

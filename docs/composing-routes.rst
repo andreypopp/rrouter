@@ -10,20 +10,20 @@ A basic example would be to define user related app functionality into a
 separate routing structure with its own views::
 
   var usersRoutes = (
-    <Route name="users" view={Users}>
+    <Routes name="users" view={Users}>
       <Route name="user" path=":username" view={User} />
       <Route name="user-albums" path=":username/albums" view={UserAlbums} />
-    </Route>
+    </Routes>
   )
 
 Then you can use ``usersRoutes`` as a part of your global application routes::
 
   var routes = (
-    <Route>
+    <Routes>
       <Route name="main" path="/">
       <Route path="/users">
         {usersRoutes}
       </Route>
       <Route name="about" path="/about">
-    </Route>
+    </Routes>
   )

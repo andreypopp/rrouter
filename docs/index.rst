@@ -9,16 +9,17 @@ The minimal React application which uses RRouter looks like::
 
   var React = require('react')
   var RRouter = require('rrouter')
+  var Routes = RRouter.Routes
   var Route = RRouter.Route
 
   var MainPage = React.createClass({ ... })
   var AboutPage = React.createClass({ ... })
 
   var routes = (
-    <Route>
+    <Routes>
       <Route name="main" path="/" view={MainPage} />
       <Route name="about" path="/about" view={AboutPage} />
-    </Route>
+    </Routes>
   )
 
   RRouter.start(routes, function(view) {
