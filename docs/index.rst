@@ -1,9 +1,12 @@
 RRouter
 =======
 
-RRouter is a declarative routing layer for React applications. Out of the box it
-provides the minimal feature set which can be extended and customized for
-specific needs.
+RRouter is a declarative routing layer for React applications.
+
+The main idea of RRouter is to isolate routing in an application in a single
+place. RRouter decodes a component and needed props from a URL. After that point
+everything in your application is pure React. That makes possible to compose
+application from modular and reusable pieces which work well together.
 
 The minimal React application which uses RRouter looks like::
 
