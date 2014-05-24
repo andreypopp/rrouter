@@ -57,7 +57,7 @@ the environment including the prefix they are mounted under.
 entirely on server (using JavaScript runtime such as Node or V8). This works
 even if routes require to fetch some data before rendering markup.
 
-How it is different than react-router-component?
+How is it different than react-router-component?
 ------------------------------------------------
 
 RRouter can be seen as the next iteration of react-router-component_.
