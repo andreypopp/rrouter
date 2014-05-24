@@ -22,6 +22,10 @@ hr {
   display: none;
 }
 
+.wy-nav-top i {
+  padding: 10px 0;
+}
+
 footer {
   font-size: 70%;
   text-align: center;
