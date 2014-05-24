@@ -89,9 +89,10 @@ The interesting thing is that react-router-component API can be implemented on
 top of RRouter with a couple of lines of code.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
 
+   self
    usage
    routing-configuration
    navigation
