@@ -6,6 +6,7 @@ Animated page transition example
     <div style="margin-bottom: 1em;" id="example"></div>
     <style>
       .App {
+        position: relative;
         overflow: hidden;
         width: 100%;
         height: 200px;
@@ -24,6 +25,8 @@ Animated page transition example
         background: #0ac2d2;
       }
       .moveUp-enter {
+        position: absolute;
+
         transition-duration: .3s;
         transition-property: -webkit-transform, opacity;
         transition-timing-function: ease-out;
@@ -36,6 +39,8 @@ Animated page transition example
       }
 
       .moveUp-leave {
+        position: absolute;
+
         transition-duration: .3s;
         transition-property: -webkit-transform, opacity;
         transition-timing-function: ease-out;
