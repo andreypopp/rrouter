@@ -64,7 +64,7 @@ _static/bundle.js: ../lib/*.js ../lib/routing/*.js
 	browserify -d \
 		-r bluebird:bluebird \
 		-r ../:rrouter \
-		-r react:react \
+		-r react/addons:react \
 		> $@
 
 html: _static/bundle.js
