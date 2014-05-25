@@ -23,7 +23,10 @@ dependencies to implement "master-detail" type of UI.
               return React.DOM.li({key: index},
                 Link({to: 'master/detail', id: id}, "Show ", id, " item"))
             })
-            return React.DOM.ul(null, items)
+            return React.DOM.div(null,
+              React.DOM.ul(null, items),
+              this.props.subView
+            )
           }
         })
 
@@ -31,16 +34,6 @@ dependencies to implement "master-detail" type of UI.
 
           render: function() {
             return React.DOM.div(null, "Detailed info for ", this.props.item, " item")
-          }
-        })
-
-        var View = React.createClass({
-
-          render: function() {
-            return React.DOM.div(null,
-              Master({items: this.props.items}),
-              this.props.item && Detail({item: this.props.item})
-            )
           }
         })
 
@@ -57,8 +50,8 @@ dependencies to implement "master-detail" type of UI.
         }
 
         var routes = Routes(null,
-          Route({name: 'master', path: '/', promiseItems: getItems, view: View},
-            Route({name: 'detail', path: ':id', promiseItem: getItem, view: View})
+          Route({name: 'master', path: '/', promiseItems: getItems, view: Master},
+            Route({name: 'detail', path: ':id', promiseItem: getItem, subView: Detail})
           )
         )
 
@@ -67,8 +60,6 @@ dependencies to implement "master-detail" type of UI.
         })
       }
     </script>
-
-::
 
 Implementation
 --------------
@@ -97,7 +88,12 @@ for each item::
             <Link to="master/detail" id={id}>Show {id} item</Link>
           </li>
       })
-      return <ul>{items}</ul>
+      return (
+        <div>
+          <ul>{items}</ul>
+          {this.props.subView}
+        </div>
+      )
     }
   })
 
@@ -116,24 +112,6 @@ item::
 
 Note that both ``Master`` and ``Detail`` views doesn't deal with fetching data.
 They are just regular stateless React components.
-
-Now to have both ``Master`` and ``Detail`` views on the same screen we defined
-``View`` component::
-
-  var View = React.createClass({
-
-    render: function() {
-      return (
-        <div>
-          <Master items={this.props.items} />
-          {this.props.item && <Detail item={this.props.item} />}
-        </div>
-      )
-    }
-  })
-
-As you can see ``View`` components always renders the ``Master`` component but
-renders ``Detail`` only if ``item`` prop is available.
 
 Now we define ``getItems`` and ``getItem`` functions which fetch a list of items
 and an item by its id correspondingly::
@@ -157,8 +135,8 @@ Now we define a routing configuration with corresponding data dependencies::
 
   var routes = (
     <Routes>
-      <Route name="master" path="/" promiseItems={getItems} view={View}>
-        <Route name="detail" path=":id" promiseItem={getItem} view={View} />
+      <Route name="master" path="/" promiseItems={getItems} view={Master}>
+        <Route name="detail" path=":id" promiseItem={getItem} subView={Detail} />
       </Route>
     </Routes>
   )
