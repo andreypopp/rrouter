@@ -44,7 +44,7 @@ attributes on different levels::
 
   var routes = (
     <Routes promiseItems={fetchItemsList} path="/items" view={Items}>
-      <Route promiseItem={fetchItem} path="/items/:itemId" view={Item} />
+      <Route promiseItem={fetchItem} path="/:itemId" view={Item} />
     </Routes>
   )
 

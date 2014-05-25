@@ -11,11 +11,11 @@ First we need to bring ``Link`` component into scope::
 
 Now consider the following routing structure::
 
-  <Route>
+  <Routes>
     <Route name="main" path="/" view={Main} />
     <Route name="about" path="/about" view={About} />
     <Route name="user" path="/users/:username" view={User} />
-  </Route>
+  </Routes>
 
 Generating link to a named route
 --------------------------------
