@@ -1,9 +1,21 @@
 Animated page transition example
 ================================
 
+This example demonstrates how to implement animated transitions between routes.
+
+Because RRouter isolates routing in one place, this example doesn't actually
+demonstrates any unique RRouter feature. Instead animated transition is
+implemented using `CSSTransitionGroup`_, an official addon for doing animations
+with React.
+
+.. _CSSTransitionGroup: http://facebook.github.io/react/docs/animation.html
+
+Example
+-------
+
 .. raw:: html
 
-    <div style="margin-bottom: 1em;" id="example"></div>
+    <div style="margin-bottom: 1em;" id="example-host"></div>
     <style>
       .App {
         position: relative;
@@ -103,7 +115,7 @@ Animated page transition example
 
         RRouter.HashRouting.start(routes, function(view, match) {
           var app = App({path: match.path}, view)
-          React.renderComponent(app, document.getElementById('example'))
+          React.renderComponent(app, document.getElementById('example-host'))
         })
       }
     </script>
@@ -111,7 +123,7 @@ Animated page transition example
 Implementation
 --------------
 
-Styles::
+First we need some styles specific for the example::
 
   .App {
     overflow: hidden;
@@ -132,6 +144,10 @@ Styles::
   .MainPage {
     background: #0ac2d2;
   }
+
+Now we describe our animated transition in CSS with CSS transitions (see
+documentation on `CSSTransitionGroup_` for details)::
+
   .moveUp-enter {
     transition-duration: .3s;
     transition-property: -webkit-transform, opacity;
@@ -157,15 +173,18 @@ Styles::
     opacity: 0.3;
   }
 
-Code::
+The required requires::
 
-  var React = require('react')
+  var React = require('react/addons')
   var CSSTransitionGroup = React.addons.CSSTransitionGroup
   var cloneWithProps = React.addons.cloneWithProps
+
   var RRouter = require('rrouter')
   var Routes = RRouter.Routes
   var Route = RRouter.Route
   var Link = RRouter.Link
+
+and pages::
 
   var MainPage = React.createClass({
 
@@ -190,6 +209,10 @@ Code::
       )
     }
   })
+
+Now the interesting part is that we don't render matched views directly into DOM
+but instead wrap it into ``App`` component which is implemented using
+``CSSTransitionGroup``::
 
   var App = React.createClass({
 
