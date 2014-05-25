@@ -191,7 +191,7 @@ Code::
     render: function() {
       return (
         <CSSTransitionGroup className="App" transitionName="moveUp" component={React.DOM.div}>
-          {cloneWithProps(this.props.children, {key: Math.random()})}
+          {cloneWithProps(this.props.children, {key: this.props.path}}
         </CSSTransitionGroup>
       )
     }
@@ -205,6 +205,6 @@ Code::
   )
 
   RRouter.HashRouting.start(routes, function(view, match) {
-    var app = <App>{view}</App>
+    var app = <App path={match.path}>{view}</App>
     React.renderComponent(app, document.getElementById('example'))
   })
