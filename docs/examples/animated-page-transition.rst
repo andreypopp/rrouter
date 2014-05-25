@@ -5,8 +5,15 @@ Animated page transition example
 
     <div style="margin-bottom: 1em;" id="example"></div>
     <style>
+      .App {
+        overflow: hidden;
+        width: 100%;
+        height: 200px;
+      }
       .AboutPage, .MainPage {
         padding: 10px;
+        width: 100%;
+        height: 100%;
       }
 
       .AboutPage {
@@ -76,7 +83,8 @@ Animated page transition example
           render: function() {
             return CSSTransitionGroup({
                 transitionName: 'moveUp',
-                component: React.DOM.div
+                component: React.DOM.div,
+                className: 'App'
               },
               cloneWithProps(this.props.children, {key: this.props.path})
             )
@@ -100,8 +108,16 @@ Implementation
 
 Styles::
 
+  .App {
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+  }
+
   .AboutPage, .MainPage {
     padding: 10px;
+    width: 100%;
+    height: 100%;
   }
 
   .AboutPage {
@@ -174,7 +190,7 @@ Code::
 
     render: function() {
       return (
-        <CSSTransitionGroup transitionName="moveUp" component={React.DOM.div}>
+        <CSSTransitionGroup className="App" transitionName="moveUp" component={React.DOM.div}>
           {cloneWithProps(this.props.children, {key: Math.random()})}
         </CSSTransitionGroup>
       )
