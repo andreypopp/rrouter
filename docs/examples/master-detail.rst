@@ -50,8 +50,8 @@ dependencies to implement "master-detail" type of UI.
         }
 
         var routes = Routes(null,
-          Route({name: 'master', path: '/', promiseItems: getItems, view: Master},
-            Route({name: 'detail', path: ':id', promiseItem: getItem, detailView: Detail})
+          Route({name: 'master', path: '/', itemsPromise: getItems, view: Master},
+            Route({name: 'detail', path: ':id', itemPromise: getItem, detailView: Detail})
           )
         )
 
@@ -135,8 +135,8 @@ Now we define a routing configuration with corresponding data dependencies::
 
   var routes = (
     <Routes>
-      <Route name="master" path="/" promiseItems={getItems} view={Master}>
-        <Route name="detail" path=":id" promiseItem={getItem} detailView={Detail} />
+      <Route name="master" path="/" itemsPromise={getItems} view={Master}>
+        <Route name="detail" path=":id" itemPromise={getItem} detailView={Detail} />
       </Route>
     </Routes>
   )

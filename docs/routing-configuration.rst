@@ -120,13 +120,13 @@ Route references reflect the route hierarchy. Thus the reference for route with
 Promise-props
 -------------
 
-If an arbitrary prop set on route is prefixed with ``promise`` prefix then this
-prop is considered a data dependency for a route. The value of such prop should
-be a function which returns a promise::
+If an arbitrary prop set on route has ``Promise`` suffix then this prop is
+considered a data dependency for a route. The value of such prop should be a
+function which returns a promise::
 
   <Routes>
     ...
-    <Route path="/users" view={Users} promiseUsers={fetchUsers} />
+    <Route path="/users" view={Users} usersPromise={fetchUsers} />
     ...
   </Routes>
 

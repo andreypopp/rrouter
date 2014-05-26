@@ -2,9 +2,9 @@ Data-fetching
 =============
 
 RRouter let you specify how to fetch data for for any route. To do that you need
-to assign ``promise*`` props for a route.
+to assign ``*Promise`` props for a route.
 
-A value of ``promise*`` prop should be a function which is called with available
+A value of ``*Promise`` prop should be a function which is called with available
 props and returns a promise which resolves to some value which will be assigned
 to the corresponding key of the ``props`` before rendering the view.
 
@@ -19,14 +19,14 @@ The basic example would be::
 
   var routes = (
     <Routes>
-      <Route promiseUser={fetchUser} path="/users/:username" view={User} />
+      <Route userPromise={fetchUser} path="/users/:username" view={User} />
     </Routes>
   )
 
 .. note::
   :class: inline
 
-  Note the conversion of prop's name from ``promiseUser`` to ``user``. This is
+  Note the conversion of prop's name from ``userPromise=`` to ``user``. This is
   the convention taken by RRouter.
 
 When browser hits ``/users/john``, ``fetchUser`` will be called with props
@@ -39,16 +39,16 @@ view. The call to instantiate ``User`` component will look like::
 Usage with nested routes
 ------------------------
 
-When you use nested routing configuration you can specify several ``promise*``
+When you use nested routing configuration you can specify several ``*Promise``
 attributes on different levels::
 
   var routes = (
-    <Routes promiseItems={fetchItemsList} path="/items" view={Items}>
-      <Route promiseItem={fetchItem} path="/:itemId" view={Item} />
+    <Routes itemsPromise={fetchItemsList} path="/items" view={Items}>
+      <Route itemPromise={fetchItem} path="/:itemId" view={Item} />
     </Routes>
   )
 
-RRouter will collect all ``promise*`` props while traversing the routing
+RRouter will collect all ``*Promise`` props while traversing the routing
 configuration to find a match and then will fetch them all in parallel.
 
 On ``/items`` URL the ``Items`` view will be called with ``items`` prop. On
