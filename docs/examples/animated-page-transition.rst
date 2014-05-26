@@ -39,29 +39,78 @@ Example
       .moveUp-enter {
         position: absolute;
 
+        -webkit-transition-duration: .3s;
+        -moz-transition-duration: .3s;
+        -ms-transition-duration: .3s;
+        -o-transition-duration: .3s;
         transition-duration: .3s;
-        transition-property: -webkit-transform, opacity;
+    
+        -webkit-transition-property: -webkit-transform, opacity;
+        -moz-transition-property: -moz-transform, opacity;
+        -ms-transition-property: -ms-transform, opacity;
+        -o-transition-property: -o-transform, opacity;
+        transition-property: transform, opacity;
+    
+        -webkit-transition-timing-function: ease-out;
+        -moz-transition-timing-function: ease-out;
+        -ms-transition-timing-function: ease-out;
+        -o-transition-timing-function: ease-out;
         transition-timing-function: ease-out;
+        
         -webkit-transform: translate3d(0,100%,0);
+        -moz-transform: translate3d(0,100%,0);
+        -ms-transform: translate3d(0,100%,0);
+        -o-transform: translate3d(0,100%,0);
+        transform: translate3d(0,100%,0);
+
         z-index: 10000;
       }
 
       .moveUp-enter.moveUp-enter-active {
         -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
       }
 
       .moveUp-leave {
         position: absolute;
 
+        -webkit-transition-duration: .3s;
+        -moz-transition-duration: .3s;
+        -ms-transition-duration: .3s;
+        -o-transition-duration: .3s;
         transition-duration: .3s;
-        transition-property: -webkit-transform, opacity;
+    
+        -webkit-transition-property: -webkit-transform, opacity;
+        -moz-transition-property: -moz-transform, opacity;
+        -ms-transition-property: -ms-transform, opacity;
+        -o-transition-property: -o-transform, opacity;
+        transition-property: transform, opacity;
+    
+        -webkit-transition-timing-function: ease-out;
+        -moz-transition-timing-function: ease-out;
+        -ms-transition-timing-function: ease-out;
+        -o-transition-timing-function: ease-out;
         transition-timing-function: ease-out;
+        
         -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        
         opacity: 1;
       }
 
       .moveUp-leave.moveUp-leave-active {
         -webkit-transform: translate3d(0,-15%,0);
+        -moz-transform: translate3d(0,-15%,0);
+        -ms-transform: translate3d(0,-15%,0);
+        -o-transform: translate3d(0,-15%,0);
+        transform: translate3d(0,-15%,0);
+        
         opacity: 0.3;
       }
     </style>
@@ -150,26 +199,26 @@ documentation on `CSSTransitionGroup_` for details)::
 
   .moveUp-enter {
     transition-duration: .3s;
-    transition-property: -webkit-transform, opacity;
+    transition-property: transform, opacity;
     transition-timing-function: ease-out;
-    -webkit-transform: translate3d(0,100%,0);
+    transform: translate3d(0,100%,0);
     z-index: 10000;
   }
 
   .moveUp-enter.moveUp-enter-active {
-    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
   }
 
   .moveUp-leave {
     transition-duration: .3s;
-    transition-property: -webkit-transform, opacity;
+    transition-property: transform, opacity;
     transition-timing-function: ease-out;
-    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
     opacity: 1;
   }
 
   .moveUp-leave.moveUp-leave-active {
-    -webkit-transform: translate3d(0,-15%,0);
+    transform: translate3d(0,-15%,0);
     opacity: 0.3;
   }
 
