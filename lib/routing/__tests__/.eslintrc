@@ -17,6 +17,6 @@
     "no-use-before-define": false,
     "no-unused-vars": [2, "all"],
     "no-mixed-requires": [1, true],
-    "max-len": [1, 120, 4]
+    "max-len": [1, 80, 4]
   }
 }
