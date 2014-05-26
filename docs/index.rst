@@ -103,6 +103,7 @@ top of RRouter with a couple of lines of code.
    composing-routes
    server-side-rendering
    examples/index
+   related-work
 
 .. _react-router-component: http://andreypopp.viewdocs.io/react-router-component
 .. _react-async: http://andreypopp.viewdocs.io/react-async
