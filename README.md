@@ -1,6 +1,8 @@
 # rrouter
 
-RRouter provides a declarative router for React applications.
+RRouter is a declarative routing layer for React applications.
+
+The usage is as simple as:
 
     var React = require('react')
     var RRouter = require('rrouter')
@@ -16,3 +18,7 @@ RRouter provides a declarative router for React applications.
     RRouter.start(routes, function(view) {
       React.renderComponent(view, document.body)
     })
+
+See [documentation][] for details.
+
+[documentation]: http://andreypopp.github.io/rrouter/
