@@ -13,7 +13,7 @@ var Main = React.createClass({
     return (
       <div>
         <h1>Main page</h1>
-        <Link href="/about">Go to about</Link>
+        <Link to="/about">Go to about</Link>
       </div>
     )
   }

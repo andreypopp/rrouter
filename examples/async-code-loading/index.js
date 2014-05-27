@@ -30,7 +30,7 @@ function AsyncRoute(props) {
 var routes = (
   <Routes>
     <AsyncRoute name="main" path="/" view="main" />
-    <AsyncRoute name="about " path="/about" view="about" />
+    <AsyncRoute name="about" path="/about" view="about" />
   </Routes>
 )
 

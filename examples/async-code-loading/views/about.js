@@ -13,7 +13,7 @@ var About = React.createClass({
     return (
       <div>
         <h1>About page</h1>
-        <Link href="/">Go to main</Link>
+        <Link to="/main">Go to main</Link>
       </div>
     )
   }
