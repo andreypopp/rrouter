@@ -1,0 +1,11 @@
+{
+  "name": "rrouter-async-code-loading-example",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bundle-loader": "^0.5.0",
+    "jsx-loader": "^0.10.2",
+    "webpack": "^1.2.0-beta5",
+    "webpack-dev-server": "^1.2.8"
+  }
+}
