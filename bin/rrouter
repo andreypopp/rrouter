@@ -43,7 +43,14 @@ function makeApp(entry, options) {
     devtool: 'source-map',
     module: {
       loaders: [
-        {include: /.*\.js$/, loader: 'jsx-loader?harmony'}
+        {test: /\.css$/,  loader: 'style!css'},
+        {test: /\.png$/,  loader: 'url-loader?mimetype=image/png'},
+        {test: /\.woff$/, loader: 'url-loader?prefix=font/&limit=5000&mimetype=application/font-woff' },
+        {test: /\.ttf$/,  loader: 'file-loader?prefix=font/'},
+        {test: /\.eot$/,  loader: 'file-loader?prefix=font/'},
+        {test: /\.svg$/,  loader: 'file-loader?prefix=font/'},
+        {test: /\.js$/,   loader: 'jsx-loader?harmony'}
+
       ]
     }
   });
