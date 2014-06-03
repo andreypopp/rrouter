@@ -25,7 +25,7 @@ dependencies to implement "master-detail" type of UI.
             })
             return React.DOM.div(null,
               React.DOM.ul(null, items),
-              this.props.detailView
+              this.props.detailView()
             )
           }
         })
@@ -88,10 +88,11 @@ for each item::
             <Link to="master/detail" id={id}>Show {id} item</Link>
           </li>
       })
+      var detailView = this.props.detailView
       return (
         <div>
           <ul>{items}</ul>
-          {this.props.detailView}
+          <detailView />
         </div>
       )
     }
