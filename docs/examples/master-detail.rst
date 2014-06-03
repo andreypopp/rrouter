@@ -18,6 +18,10 @@ dependencies to implement "master-detail" type of UI.
 
         var Master = React.createClass({
 
+          getDefaultProps: function() {
+            return {detailView: function() { }}
+          },
+
           render: function() {
             var items = this.props.items.map(function(id, index) {
               return React.DOM.li({key: index},
@@ -80,6 +84,10 @@ Now we define ``Master`` view which renders a list of links to ``Detail`` view
 for each item::
 
   var Master = React.createClass({
+
+    getDefaultProps: function() {
+      return {detailView: function() { }}
+    },
 
     render: function() {
       var items = this.props.items.map(function(id) {
