@@ -14,7 +14,7 @@ var Route = RRouter.Route
 // a function which loads a view via webpack's bundle-loader
 function loadViewModule(props) {
   var id = props.viewModule
-  return new Promise((resolve) => require('bundle!./views/' + id)(resolve))
+  return new Promise(require('bundle?lazy!./views/' + id))
 }
 
 // a "syntax sugar" which shortcuts defining view code loading
@@ -35,5 +35,6 @@ var routes = (
 )
 
 RRouter.HashRouting.start(routes, (view) => {
+  console.log(view);
   React.renderComponent(view, document.getElementById('app'))
 })
