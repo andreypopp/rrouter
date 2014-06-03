@@ -38,7 +38,8 @@ function makeApp(entry, options) {
     bail: true,
     output: {
       path: '/bundle',
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      publicPath: '/bundle'
     },
     devtool: 'source-map',
     module: {
