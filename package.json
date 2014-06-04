@@ -5,8 +5,9 @@
   "main": "./lib/index.js",
   "bin": "./bin/rrouter",
   "dependencies": {
-    "reactify": "^0.13.1",
-    "envify": "^1.2.1"
+    "envify": "^1.2.1",
+    "qs": "^0.6.6",
+    "reactify": "^0.13.1"
   },
   "peerDependencies": {
     "bluebird": "^1.2.4",
