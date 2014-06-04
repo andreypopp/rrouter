@@ -4,9 +4,8 @@ RRouter
 RRouter is a declarative routing layer for React applications.
 
 The main idea of RRouter is to isolate routing in an application in a single
-place. RRouter decodes a component and needed props from a URL. After that point
-everything in your application is pure React. That makes possible to compose
-application from modular and reusable pieces which work well together.
+place. That makes possible to compose your application from "pure" React
+components.
 
 The minimal React application which uses RRouter looks like::
 
@@ -32,8 +31,6 @@ The minimal React application which uses RRouter looks like::
 Features
 --------
 
-The following paragraphs describe the most important features of RRouter.
-
 **Declarative routing configuration**. Application routes are configured in a
 declarative way. Application can inspect configuration and attach additional
 metadata to routes. Routing configuration can be nested, so that we can
@@ -44,9 +41,7 @@ which is used to refer to a route inside a routing structure. RRouter also
 provides a ``Link`` component which can generate a ``<a>`` element which points
 to a specific route by simply referring to the route via ``to`` prop::
 
-  <Link to="user-profile" username="andrey">
-    Profile
-  </Link>
+  <Link to="/user-profile" username="john">Profile</Link>
 
 **Data dependencies**. Routes can specify which data should be fetched
 asynchronously. It works even with nested routing configurations — RRouter will

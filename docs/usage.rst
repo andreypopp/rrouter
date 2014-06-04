@@ -101,8 +101,8 @@ With AMD
   Please send a pull-request with documentation on how to use RRouter with an
   AMD loader.
 
-By including RRouter with ``<script>`` element
-----------------------------------------------
+By including RRouter with <script> element
+------------------------------------------
 
 .. note::
 
