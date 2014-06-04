@@ -23,33 +23,56 @@ dependencies to implement "master-detail" type of UI.
           },
 
           render: function() {
-            var items = this.props.items.map(function(id, index) {
-              return React.DOM.li({key: index},
-                Link({to: 'master/detail', id: id}, "Show ", id, " item"))
-            })
-            return React.DOM.div(null,
-              React.DOM.ul(null, items),
-              this.props.detail()
-            )
+            if (this.props.items) {
+              var items = this.props.items.map(function(id, index) {
+                return React.DOM.li({key: index},
+                  Link({to: 'master/detail', id: id}, "Show ", id, " item"))
+              })
+              return React.DOM.div(null,
+                React.DOM.ul(null, items),
+                this.props.detail()
+              )
+            } else {
+              return React.DOM.div(null, 'Loading...')
+            }
           }
         })
 
         var Detail = React.createClass({
 
           render: function() {
-            return React.DOM.div(null, "Detailed info for ", this.props.item, " item")
+            if (this.props.item !== undefined) {
+              return React.DOM.div(null, "Detailed info for ", this.props.item, " item")
+            } else {
+              return React.DOM.div(null, "Loading...")
+            }
           }
         })
 
+        var loadedItems = null;
+        var loadedItem = {};
+
         function getItems(props) {
+          if (loadedItems !== null) {
+            return Promise.resolve(loadedItems);
+          }
           return new Promise(function(resolve) {
-            resolve([1, 2, 3, 4, 5])
+            setTimeout(function() {
+              loadedItems = [1, 2, 3, 4, 5];
+              resolve(loadedItems);
+            }, 700)
           })
         }
 
         function getItem(props) {
+          if (loadedItem[props.id]) {
+            return Promise.resolve(loadedItem[props.id]);
+          }
           return new Promise(function(resolve) {
-            resolve(props.id)
+            setTimeout(function() {
+              loadedItem[props.id] = props.id;
+              resolve(loadedItem[props.id]);
+            }, 1500)
           })
         }
 
@@ -125,15 +148,30 @@ They are just regular stateless React components.
 Now we define ``getItems`` and ``getItem`` functions which fetch a list of items
 and an item by its id correspondingly::
 
+  var loadedItems = null;
+  var loadedItem = {};
+
   function getItems(props) {
+    if (loadedItems !== null) {
+      return Promise.resolve(loadedItems);
+    }
     return new Promise(function(resolve) {
-      resolve([1, 2, 3, 4, 5])
+      setTimeout(function() {
+        loadedItems = [1, 2, 3, 4, 5];
+        resolve(loadedItems);
+      }, 700)
     })
   }
 
   function getItem(props) {
+    if (loadedItem[props.id]) {
+      return Promise.resolve(loadedItem[props.id]);
+    }
     return new Promise(function(resolve) {
-      resolve(props.id)
+      setTimeout(function() {
+        loadedItem[props.id] = props.id;
+        resolve(loadedItem[props.id]);
+      }, 1500)
     })
   }
 

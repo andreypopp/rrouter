@@ -68,7 +68,7 @@ _static/bundle.js: ../lib/*.js ../lib/routing/*.js
 		> $@
 
 html: _static/bundle.js
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	$(SPHINXBUILD) -a -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
