@@ -19,7 +19,7 @@ dependencies to implement "master-detail" type of UI.
         var Master = React.createClass({
 
           getDefaultProps: function() {
-            return {detailView: function() { }}
+            return {detail: function() { }}
           },
 
           render: function() {
@@ -29,7 +29,7 @@ dependencies to implement "master-detail" type of UI.
             })
             return React.DOM.div(null,
               React.DOM.ul(null, items),
-              this.props.detailView()
+              this.props.detail()
             )
           }
         })
@@ -86,7 +86,7 @@ for each item::
   var Master = React.createClass({
 
     getDefaultProps: function() {
-      return {detailView: function() { }}
+      return {detail: function() { }}
     },
 
     render: function() {
@@ -96,11 +96,11 @@ for each item::
             <Link to="master/detail" id={id}>Show {id} item</Link>
           </li>
       })
-      var detailView = this.props.detailView
+      var detail = this.props.detail
       return (
         <div>
           <ul>{items}</ul>
-          <detailView />
+          <detail />
         </div>
       )
     }
