@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "React Router",
   "main": "./lib/index.js",
-  "bin": "./bin/rrouter",
   "dependencies": {
     "envify": "^1.2.1",
     "qs": "^0.6.6",
