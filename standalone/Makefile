@@ -21,14 +21,13 @@ rrouter.min.js: rrouter.prod.js
 clean:
 	@rm -f $(TARGETS)
 	@rm -f rrouter-build-*.tgz
-	@rm -rf ./themes
 	@rm -rf ./package
 
 README.md LICENSE:
 	cp -r ../$@ ./$@
 
 # called by npm
-prepublish: clean build themes README.md LICENSE
+prepublish: clean build README.md LICENSE
 
 publish: publish-repo
 
