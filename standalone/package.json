@@ -1,0 +1,45 @@
+{
+  "name": "rrouter-build",
+  "version": "0.1.0",
+  "homepage": "http://andreypopp.github.io/rrouter/",
+  "main": "./index.js",
+  "browserify": {
+    "transform": [
+      [
+        "browserify-shim",
+        {
+          "global": true
+        }
+      ],
+      [
+        "envify",
+        {
+          "global": true
+        }
+      ]
+    ]
+  },
+  "files": [
+    "rrouter.js",
+    "rrouter.min.js",
+    "LICENSE",
+    "README.md",
+    "bower.json"
+  ],
+  "scripts": {
+    "prepublish": "make prepublish"
+  },
+  "browserify-shim": {
+    "react": "global:React",
+    "bluebird": "global:Promise"
+  },
+  "devDependencies": {
+    "browserify": "^3.33.0",
+    "browserify-shim": "^3.3.2",
+    "derequire": "^0.8.0",
+    "envify": "^1.2.1",
+    "uglify-js": "^2.4.13"
+  },
+  "author": "Andrey Popp <8mayday@gmail.com>",
+  "license": "MIT"
+}

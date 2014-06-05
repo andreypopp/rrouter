@@ -1,0 +1,31 @@
+{
+  "name": "rrouter",
+  "main": "rrouter.js",
+  "version": "0.1.0",
+  "homepage": "http://andreypopp.github.io/rrouter/",
+  "authors": [
+    "Andrey Popp <8mayday@gmail.com>"
+  ],
+  "description": "Forms library for React",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "react",
+    "router"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.10.0",
+    "bluebird": "~1.2.4"
+  }
+}
