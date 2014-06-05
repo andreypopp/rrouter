@@ -2,6 +2,7 @@
 .INTERMEDIATE: rrouter.prod.js rrouter-build-*.tgz package
 REPO = $(shell git config --local --get remote.origin.url)
 BRANCH = master
+VERSION = $(shell node -p 'require("./bower.json").version')
 
 TARGETS = rrouter.js rrouter.min.js
 
@@ -44,7 +45,9 @@ publish-repo: pack
 	cd package;\
 	git add --all .;\
 	git commit -m "Build.";\
-	git push origin $(BRANCH);
+	git tag v$(VERSION);\
+	git push origin $(BRANCH);\
+	git push --tags origin $(BRANCH);
 
 define browserify
 	@NODE_ENV=$(1) browserify -t [ reactify --es6 ] . \
