@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.INTERMEDIATE: rrouter.prod.js
+.INTERMEDIATE: rrouter.prod.js rrouter-build-*.tgz package
 REPO = $(shell git config --local --get remote.origin.url)
 BRANCH = master
 
