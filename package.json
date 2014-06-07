@@ -4,14 +4,14 @@
   "description": "React Router",
   "main": "./lib/index.js",
   "dependencies": {
-    "envify": "^1.2.1",
     "qs": "^0.6.6",
+    "url-pattern": "^0.6.0",
+    "envify": "^1.2.1",
     "reactify": "^0.13.1"
   },
   "peerDependencies": {
     "bluebird": "^1.2.4",
-    "react": "^0.10.0",
-    "url-pattern": "^0.6.0"
+    "react": "^0.10.0"
   },
   "devDependencies": {
     "bluebird": "^1.2.4",
