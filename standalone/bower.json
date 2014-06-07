@@ -1,7 +1,7 @@
 {
   "name": "rrouter",
   "main": "rrouter.js",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "homepage": "http://andreypopp.github.io/rrouter/",
   "authors": [
     "Andrey Popp <8mayday@gmail.com>"
