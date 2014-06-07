@@ -7,93 +7,15 @@ dependencies to implement "master-detail" type of UI.
 .. raw:: html
 
     <div style="margin-bottom: 1em;" id="example"></div>
-    <script>
-      window.onload = function() {
-        var Promise = require('bluebird')
-        var React = require('react')
-        var RRouter = require('rrouter')
-        var Routes = RRouter.Routes
-        var Route = RRouter.Route
-        var Link = RRouter.Link
-
-        var Master = React.createClass({
-
-          getDefaultProps: function() {
-            return {detail: function() { }}
-          },
-
-          render: function() {
-            if (this.props.items) {
-              var items = this.props.items.map(function(id, index) {
-                return React.DOM.li({key: index},
-                  Link({to: 'master/detail', id: id}, "Show ", id, " item"))
-              })
-              return React.DOM.div(null,
-                React.DOM.ul(null, items),
-                this.props.detail()
-              )
-            } else {
-              return React.DOM.div(null, 'Loading...')
-            }
-          }
-        })
-
-        var Detail = React.createClass({
-
-          render: function() {
-            if (this.props.item !== undefined) {
-              return React.DOM.div(null, "Detailed info for ", this.props.item, " item")
-            } else {
-              return React.DOM.div(null, "Loading...")
-            }
-          }
-        })
-
-        var loadedItems = null;
-        var loadedItem = {};
-
-        function getItems(props) {
-          if (loadedItems !== null) {
-            return Promise.resolve(loadedItems);
-          }
-          return new Promise(function(resolve) {
-            setTimeout(function() {
-              loadedItems = [1, 2, 3, 4, 5];
-              resolve(loadedItems);
-            }, 700)
-          })
-        }
-
-        function getItem(props) {
-          if (loadedItem[props.id]) {
-            return Promise.resolve(loadedItem[props.id]);
-          }
-          return new Promise(function(resolve) {
-            setTimeout(function() {
-              loadedItem[props.id] = props.id;
-              resolve(loadedItem[props.id]);
-            }, 1500)
-          })
-        }
-
-        var routes = Routes(null,
-          Route({name: 'master', path: '/', itemsPromise: getItems, view: Master},
-            Route({name: 'detail', path: ':id', itemPromise: getItem, detailView: Detail})
-          )
-        )
-
-        RRouter.HashRouting.start(routes, function(view) {
-          React.renderComponent(view, document.getElementById('example'))
-        })
-      }
-    </script>
 
 Implementation
 --------------
 
 Data dependencies mechanism expects that promises are returned. We will use
 bluebird_ library which provides ES6 compatible promises for browsers (and
-Node.js)::
+Node.js):
+
+.. jsx::
 
   var Promise = require('bluebird')
   var React = require('react')
@@ -104,7 +26,9 @@ Node.js)::
   var Link = RRouter.Link
 
 Now we define ``Master`` view which renders a list of links to ``Detail`` view
-for each item::
+for each item:
+
+.. jsx::
 
   var Master = React.createClass({
 
@@ -113,11 +37,16 @@ for each item::
     },
 
     render: function() {
+      if (!this.props.items) {
+        return <div>Loading...</div>;
+      }
+
       var items = this.props.items.map(function(id) {
         return (
           <li key={id}>
             <Link to="master/detail" id={id}>Show {id} item</Link>
           </li>
+        )
       })
       var detail = this.props.detail
       return (
@@ -133,12 +62,18 @@ Note that instead of using ``<a>`` DOM component we use ``Link`` component which
 can generate ``<a>`` with a correct ``href`` property for us.
 
 Next we define ``Detail`` view which renders detailed information on a given
-item::
+item:
+
+.. jsx::
 
   var Detail = React.createClass({
 
     render: function() {
-      return <div>Detailed info for {this.props.item} item</div>
+      if (!this.props.item) {
+        return <div>Loading...</div>;
+      } else {
+        return <div>Detailed info for {this.props.item} item</div>
+      }
     }
   })
 
@@ -146,7 +81,9 @@ Note that both ``Master`` and ``Detail`` views doesn't deal with fetching data.
 They are just regular stateless React components.
 
 Now we define ``getItems`` and ``getItem`` functions which fetch a list of items
-and an item by its id correspondingly::
+and an item by its id correspondingly:
+
+.. jsx::
 
   var loadedItems = null;
   var loadedItem = {};
@@ -178,7 +115,9 @@ and an item by its id correspondingly::
 We used dummy implementations. In the real application these functions will hit
 database or a remote API to fetch data.
 
-Now we define a routing configuration with corresponding data dependencies::
+Now we define a routing configuration with corresponding data dependencies:
+
+.. jsx::
 
   var routes = (
     <Routes>
@@ -192,7 +131,9 @@ Note that both routes hits the same ``View`` component, then it decides if it
 should render ``Master`` or ``Master`` and ``Detail`` based on available props.
 
 The final part is to start RRouter with our routing configuration and render
-view into DOM::
+view into DOM:
+
+.. jsx::
 
   RRouter.HashRouting.start(routes, function(view) {
     React.renderComponent(view, document.getElementById('example'))

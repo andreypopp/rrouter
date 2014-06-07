@@ -114,60 +114,6 @@ Example
         opacity: 0.3;
       }
     </style>
-    <script>
-      window.onload = function() {
-        var React = require('react')
-        var CSSTransitionGroup = React.addons.CSSTransitionGroup
-        var cloneWithProps = React.addons.cloneWithProps
-        var RRouter = require('rrouter')
-        var Routes = RRouter.Routes
-        var Route = RRouter.Route
-        var Link = RRouter.Link
-
-        var MainPage = React.createClass({
-
-          render: function() {
-            return React.DOM.div({className: 'MainPage'},
-              React.DOM.h5(null, 'Main page'),
-              Link({to: 'about'}, 'Go to about page')
-            )
-          }
-        })
-
-        var AboutPage = React.createClass({
-
-          render: function() {
-            return React.DOM.div({className: 'AboutPage'},
-              React.DOM.h5(null, 'About page'),
-              Link({to: 'main'}, 'Go to main page')
-            )
-          }
-        })
-
-        var App = React.createClass({
-
-          render: function() {
-            return CSSTransitionGroup({
-                transitionName: 'moveUp',
-                component: React.DOM.div,
-                className: 'App'
-              },
-              cloneWithProps(this.props.children, {key: this.props.path})
-            )
-          }
-        })
-
-        var routes = Routes(null,
-          Route({name: 'main', path: '/', view: MainPage}),
-          Route({name: 'about', path: '/about', view: AboutPage})
-        )
-
-        RRouter.HashRouting.start(routes, function(view, match) {
-          var app = App({path: match.path}, view)
-          React.renderComponent(app, document.getElementById('example-host'))
-        })
-      }
-    </script>
 
 Implementation
 --------------
@@ -222,9 +168,11 @@ documentation on `CSSTransitionGroup_` for details)::
     opacity: 0.3;
   }
 
-The required requires::
+The required requires:
 
-  var React = require('react/addons')
+.. jsx::
+
+  var React = require('react')
   var CSSTransitionGroup = React.addons.CSSTransitionGroup
   var cloneWithProps = React.addons.cloneWithProps
 
@@ -233,7 +181,9 @@ The required requires::
   var Route = RRouter.Route
   var Link = RRouter.Link
 
-and pages::
+and pages:
+
+.. jsx::
 
   var MainPage = React.createClass({
 
@@ -261,14 +211,16 @@ and pages::
 
 Now the interesting part is that we don't render matched views directly into DOM
 but instead wrap it into ``App`` component which is implemented using
-``CSSTransitionGroup``::
+``CSSTransitionGroup``:
+
+.. jsx::
 
   var App = React.createClass({
 
     render: function() {
       return (
         <CSSTransitionGroup className="App" transitionName="moveUp" component={React.DOM.div}>
-          {cloneWithProps(this.props.children, {key: this.props.path}}
+          {cloneWithProps(this.props.children, {key: this.props.path})}
         </CSSTransitionGroup>
       )
     }
@@ -283,5 +235,5 @@ but instead wrap it into ``App`` component which is implemented using
 
   RRouter.HashRouting.start(routes, function(view, match) {
     var app = <App path={match.path}>{view}</App>
-    React.renderComponent(app, document.getElementById('example'))
+    React.renderComponent(app, document.getElementById('example-host'))
   })
