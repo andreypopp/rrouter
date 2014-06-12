@@ -1,5 +1,12 @@
 PATH := ./node_modules/.bin:$(PATH)
-TESTS = $(shell find ./lib -name '*-test.js')
+TESTS = $(shell find ./src -name '*-test.js')
+SRC = $(shell find ./src -name '*.js')
+LIB = $(SRC:./src/%.js=./lib/%.js)
+
+build: $(LIB)
+
+clean:
+	@rm -rf ./lib
 
 install link::
 	@npm $@
@@ -11,7 +18,7 @@ ci::
 	@mochify --watch $(TESTS)
 
 lint::
-	@eslint-jsx lib
+	@eslint-jsx src
 
 docs::
 	@$(MAKE) --no-print-directory -C docs/ html
@@ -36,3 +43,7 @@ publish:
 define release
 	npm version $(1)
 endef
+
+./lib/%.js: ./src/%.js
+	@mkdir -p $(@D)
+	@cat $< | jsx --harmony > $@
