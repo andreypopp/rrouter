@@ -177,7 +177,7 @@ describe('PathnameRouting with data dependencies', function() {
   beforeEach(function() {
     window.history.pushState({}, '', '/');
     appDataPromise = null;
-    pageDataPromise = null
+    pageDataPromise = null;
     aboutDataPromise = null;
   });
 

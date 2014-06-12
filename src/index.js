@@ -7,7 +7,6 @@ var matchRoutes         = require('./matchRoutes');
 var data                = require('./data');
 var route               = require('./route');
 var createView          = require('./createView');
-var fetchViews          = require('./fetchViews');
 var PathnameRouting     = require('./routing/PathnameRouting');
 var HashRouting         = require('./routing/HashRouting');
 var Link                = require('./Link');

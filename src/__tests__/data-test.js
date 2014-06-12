@@ -17,13 +17,13 @@ function ita(name, testCase) {
 function promise(value) {
   return function(props) {
     return new Promise((resolve) => setTimeout(() => resolve(value), 0));
-  }
+  };
 }
 
 function resolvedPromise(value) {
   return function(props) {
     return Promise.resolve(value);
-  }
+  };
 }
 
 function makeDoneLatch(done, counter) {
@@ -35,7 +35,7 @@ function makeDoneLatch(done, counter) {
     } else {
       counter = counter - 1;
     }
-  }
+  };
 }
 
 describe('fetchProgressively', function() {
@@ -50,7 +50,7 @@ describe('fetchProgressively', function() {
       ]
     };
 
-    var nMatch = fetchProgressively(match, function(match) {
+    var nMatch = fetchProgressively(match, function() {
       done();
     }, done);
 
@@ -68,7 +68,7 @@ describe('fetchProgressively', function() {
       ]
     };
 
-    var nMatch = fetchProgressively(match, function(match) {
+    var nMatch = fetchProgressively(match, function() {
       done();
     }, done);
 
@@ -85,7 +85,7 @@ describe('fetchProgressively', function() {
       ]
     };
 
-    var nMatch = fetchProgressively(match, function(match) {
+    var nMatch = fetchProgressively(match, function() {
       assert.ok(false);
     }, done);
 

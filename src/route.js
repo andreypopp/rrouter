@@ -20,7 +20,7 @@ function route(routes, path, query) {
           var view = createView(match);
           return func(view, match, {initial: true});
         });
-      }
+      };
     }).then(resolve, reject);
   });
 }
