@@ -11,16 +11,15 @@
   ],
   "dependencies": {
     "qs": "^0.6.6",
-    "url-pattern": "^0.6.0",
-    "envify": "^1.2.1",
-    "reactify": "^0.13.1"
+    "url-pattern": "^0.6.0"
   },
   "peerDependencies": {
-    "bluebird": "^1.2.4",
+    "bluebird": "^2.1.1",
     "react": "^0.10.0"
   },
   "devDependencies": {
-    "bluebird": "^1.2.4",
+    "reactify": "^0.13.1",
+    "bluebird": "^2.1.1",
     "eslint-jsx": "git+https://github.com/andreypopp/eslint#jsx",
     "mocha": "^1.19.0",
     "mochify": "^0.9.2",
