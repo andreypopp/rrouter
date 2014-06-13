@@ -97,12 +97,11 @@ function hasView(route) {
 }
 
 function isRoutes(routes) {
-  var keys = Object.keys(routes);
   return (
-    keys.indexOf('path') > -1
-    && keys.indexOf('view') > -1
-    && keys.indexOf('props') > -1
-    && keys.indexOf('children') > -1
+    routes.hasOwnProperty('path')
+    && routes.hasOwnProperty('view')
+    && routes.hasOwnProperty('props')
+    && routes.hasOwnProperty('children')
   );
 }
 
