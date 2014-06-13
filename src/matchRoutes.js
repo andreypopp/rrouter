@@ -37,18 +37,27 @@ function normalize(path) {
 function matchRoute(route, path) {
 
   if (route.pattern === undefined && route.path !== undefined) {
-    var routePath = normalize(route.path);
+    var routePattern;
+
+    if (route.path instanceof RegExp) {
+      routePattern = route.path;
+    } else {
+      var routePath = normalize(route.path);
+      routePattern = route.children.length > 0 ? routePath + '*' : routePath;
+    }
 
     Object.defineProperty(route, 'pattern', {
       enumerable: false,
-      value: pattern.newPattern(route.children.length > 0 ?
-        routePath + '*' :
-        routePath)
+      value: pattern.newPattern(routePattern)
     });
   }
 
   if (route.pattern) {
     var match = route.pattern.match(path);
+
+    if (route.pattern.isRegex) {
+      match = {_: match};
+    }
 
     if (match
         && (!match._ || match._[0] === '/' || match._[0] === '')) {

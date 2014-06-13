@@ -31,6 +31,15 @@ describe('Route', function() {
       assert.equal(routes.children.length, 2);
     });
 
+    it('creates routes with RegExp', function() {
+      var routes = (
+        <Routes>
+          <Route path={/a/} />
+        </Routes>
+      );
+      assert(routes.children[0].path instanceof RegExp);
+    });
+
   });
 
   describe('getTraceByName()', function() {
