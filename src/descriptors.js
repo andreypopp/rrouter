@@ -17,9 +17,9 @@ var slashes = /(^\/)|(\/$)/g;
 function Route(props) {
   props = props || {};
 
-  var path = props.path ?
+  var path = typeof path === 'string' ?
     props.path.replace(slashes, '') :
-    undefined;
+    props.path;
 
   delete props.path;
 

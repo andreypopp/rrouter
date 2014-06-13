@@ -382,4 +382,26 @@ describe('matchRoutes', function() {
 
   });
 
+  describe('matching RegExp routes', function() {
+
+    var routes = (
+      <Routes>
+        <Route name="products" path={/^\/products\/(\d+)/} view="Products" />
+      </Routes>
+    );
+
+    itMatches(routes, '/products/123', {
+      path: '/products/123',
+      query: {},
+      route: routes.children[0],
+      trace: [
+        {route: routes, match: {_: ['/products/123/']}, props: {query: {}}},
+        {route: routes.children[0], match: {_: ['123']}, props: {query: {}}}
+      ],
+      activeTrace: [
+        {route: routes.children[0], match: {_: ['123']}, props: {query: {}}}
+      ]
+    });
+
+  });
 });
