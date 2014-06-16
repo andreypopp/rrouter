@@ -403,5 +403,13 @@ describe('matchRoutes', function() {
       ]
     });
 
+    itMatches(routes, '/products/abc', {
+      path: '/products/abc',
+      query: {},
+      route: undefined,
+      trace: [],
+      activeTrace: []
+    });
+
   });
 });

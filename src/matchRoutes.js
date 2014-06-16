@@ -55,13 +55,14 @@ function matchRoute(route, path) {
   if (route.pattern) {
     var match = route.pattern.match(path);
 
-    if (route.pattern.isRegex) {
-      match = {_: match};
-    }
+    if (match) {
+      if (route.pattern.isRegex) {
+        match = {_: match};
+      }
 
-    if (match
-        && (!match._ || match._[0] === '/' || match._[0] === '')) {
-      delete match._;
+      if (!match._ || match._[0] === '/' || match._[0] === '') {
+        delete match._;
+      }
     }
 
     return match;
