@@ -12,13 +12,13 @@ install link::
 	@npm $@
 
 test::
-	@mochify $(TESTS)
+	@mochify $(TESTS);
 
 ci::
-	@mochify --watch $(TESTS)
+	@mochify --watch $(TESTS);
 
 lint::
-	@eslint-jsx src
+	@eslint-jsx src;
 
 docs::
 	@$(MAKE) --no-print-directory -C docs/ html
