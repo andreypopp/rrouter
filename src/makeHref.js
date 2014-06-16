@@ -19,14 +19,15 @@ function makeHref(routes, name, match, params) {
 function getPattern(routes, name, match) {
   var trace = getScopedTrace(routes, name, match);
 
-  invariant(
-    trace !== undefined && trace.length > 0,
-    'cannot resolve "%s" route reference', name
-  );
-
   var href = '';
   for (var i = 0, len = trace.length; i < len; i++) {
     var route = trace[i];
+
+    invariant(
+      route !== undefined,
+      'cannot resolve "%s" route reference', name
+    );
+
     if (route.path && route.path.length > 0) {
       href = href + '/' + route.path;
     }
