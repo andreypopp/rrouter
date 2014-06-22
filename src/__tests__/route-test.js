@@ -51,6 +51,7 @@ describe('route', function() {
     route(routes, '/page', 'foo=bar').then(function(View) {
       var view = <View />;
       assert.equal(view.type.displayName, 'Page');
+      done();
     }).catch(done);
   });
 
