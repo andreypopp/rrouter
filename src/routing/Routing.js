@@ -3,7 +3,6 @@
  */
 'use strict';
 
-var qs                    = require('qs');
 var React                 = require('react');
 var createView            = require('../createView');
 var matchRoutes           = require('../matchRoutes');
@@ -95,11 +94,7 @@ class Routing {
   }
 
   makeHref(name, params) {
-    var href = makeHref(this.routes, name, this.match, params);
-    if (params && params.query) {
-      href = href + '?' + qs.stringify(params.query);
-    }
-    return href;
+    return makeHref(this.routes, name, this.match, params);
   }
 
   start() {

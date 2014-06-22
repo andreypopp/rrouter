@@ -79,7 +79,7 @@ function buildNameIndex(route) {
       }
     }
   }
-  
+
   if (route.name !== undefined) {
     index[route.name] = [route];
   }

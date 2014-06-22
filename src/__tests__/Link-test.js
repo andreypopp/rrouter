@@ -82,8 +82,8 @@ describe('Link', function() {
     });
   
     describe('generating href by referring to a route', function() {
-      itGeneratesHrefTo('/main', 'URL');
-      itGeneratesHrefTo('about', 'URL');
+      itGeneratesHrefTo('/main', '/');
+      itGeneratesHrefTo('about', '/about');
     });
 
   });

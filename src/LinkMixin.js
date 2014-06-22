@@ -6,6 +6,7 @@
 var React               = require('react');
 var invariant           = require('./invariant');
 var RoutingContextMixin = require('./RoutingContextMixin');
+var makeHref            = require('./makeHref');
 
 var LinkMixin = {
   mixins: [RoutingContextMixin],
@@ -34,7 +35,12 @@ var LinkMixin = {
     if (this.props.href) {
       return this.props.href;
     } else if (this.props.to) {
-      return this.getRouting().makeHref(this.props.to, this.props);
+      return makeHref(
+        this.getRoutes(),
+        this.props.to,
+        this.getMatch(),
+        this.props
+      );
     } else {
       invariant(
         false,
