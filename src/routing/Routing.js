@@ -53,7 +53,8 @@ class Routing {
 
     var render = (match) => {
       if (this.match === expectedMatch) {
-        this.renderView(match, navigation);
+        var viewFactory = this.createViewFactory(match);
+        this.onRoute(viewFactory, match, navigation);
       }
     };
 
@@ -76,11 +77,6 @@ class Routing {
     return function contextualViewFactory(props) {
       return React.withContext(context, () => viewFactory(props));
     }
-  }
-
-  renderView(match, navigation) {
-    var viewFactory = this.createViewFactory(match);
-    this.onRoute(viewFactory, match, navigation);
   }
 
   navigate(path, navigation) {
