@@ -35,12 +35,7 @@ var LinkMixin = {
     if (this.props.href) {
       return this.props.href;
     } else if (this.props.to) {
-      return makeHref(
-        this.getRoutes(),
-        this.props.to,
-        this.getMatch(),
-        this.props
-      );
+      return this.getRouting().makeHref(this.props.to, this.props);
     } else {
       invariant(
         false,

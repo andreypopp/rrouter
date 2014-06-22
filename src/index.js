@@ -3,10 +3,7 @@
  */
 'use strict';
 
-var matchRoutes         = require('./matchRoutes');
-var data                = require('./data');
 var route               = require('./route');
-var createView          = require('./createView');
 var PathnameRouting     = require('./routing/PathnameRouting');
 var HashRouting         = require('./routing/HashRouting');
 var Link                = require('./Link');
@@ -20,9 +17,6 @@ module.exports = {
   Route: descriptors.Route,
   Link,
   LinkMixin,
-  matchRoutes,
-  createView,
-  data,
   start: PathnameRouting.start.bind(PathnameRouting),
   route,
   PathnameRouting,

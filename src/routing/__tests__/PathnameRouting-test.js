@@ -16,6 +16,15 @@ function delay(func, ms) {
   setTimeout(func, ms || 10);
 }
 
+function makeOnRoute() {
+  var onRoute = sinon.spy();
+  onRoute.proxy = function(View, match, navigation) {
+    var view = <View />;
+    onRoute(view, match, navigation);
+  }
+  return onRoute;
+}
+
 describe('PathnameRouting', function() {
 
   var Main = React.createClass({
@@ -42,8 +51,8 @@ describe('PathnameRouting', function() {
   });
 
   it('starts routing', function(done) {
-    var onRoute = sinon.spy();
-    PathnameRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    PathnameRouting.start(routes, onRoute.proxy);
     delay(function() {
       sinon.assert.calledOnce(onRoute);
       assert.equal(onRoute.firstCall.args[0].type.displayName, 'Main');
@@ -53,8 +62,8 @@ describe('PathnameRouting', function() {
   });
 
   it('navigates to a different route', function(done) {
-    var onRoute = sinon.spy();
-    var routing = PathnameRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    var routing = PathnameRouting.start(routes, onRoute.proxy);
     delay(function() {
       routing.navigate('/page');
       delay(function() {
@@ -67,8 +76,8 @@ describe('PathnameRouting', function() {
   });
 
   it('navigates to a different route with custom navigation params', function(done) {
-    var onRoute = sinon.spy();
-    var routing = PathnameRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    var routing = PathnameRouting.start(routes, onRoute.proxy);
     delay(function() {
       routing.navigate('/page', {foo: 'bar'});
       delay(function() {
@@ -82,8 +91,8 @@ describe('PathnameRouting', function() {
   });
 
   it('navigates to a different route when query string changes', function(done) {
-    var onRoute = sinon.spy();
-    var routing = PathnameRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    var routing = PathnameRouting.start(routes, onRoute.proxy);
     delay(function() {
       routing.navigate('/page');
       routing.navigate('/page?foo=bar');
@@ -101,8 +110,8 @@ describe('PathnameRouting', function() {
   });
 
   it('reacts on popstate', function(done) {
-    var onRoute = sinon.spy();
-    var routing = PathnameRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    var routing = PathnameRouting.start(routes, onRoute.proxy);
     delay(function() {
       routing.navigate('/page');
       delay(function() {
@@ -120,8 +129,8 @@ describe('PathnameRouting', function() {
   });
 
   it('generates href', function() {
-    var onRoute = sinon.spy();
-    var routing = PathnameRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    var routing = PathnameRouting.start(routes, onRoute.proxy);
     assert.equal(routing.makeHref('main'), '/');
     assert.equal(routing.makeHref('page'), '/page');
   });
@@ -189,11 +198,11 @@ describe('PathnameRouting with data dependencies', function() {
       appDataPromise = defer('appData', 50);
       pageDataPromise = defer('pageData', 70);
       aboutDataPromise = defer('aboutData', 20);
-      onRoute = sinon.spy();
+      onRoute = makeOnRoute();
     });
 
     it('routes to /', function(done) {
-      PathnameRouting.start(routes, onRoute);
+      PathnameRouting.start(routes, onRoute.proxy);
       delay(function() {
         sinon.assert.calledTwice(onRoute);
         assert.equal(onRoute.firstCall.args[0].type.displayName, 'App');
@@ -206,7 +215,7 @@ describe('PathnameRouting with data dependencies', function() {
 
     it('routes to /page', function(done) {
       window.history.pushState({}, '', '/page');
-      PathnameRouting.start(routes, onRoute);
+      PathnameRouting.start(routes, onRoute.proxy);
       delay(function() {
         sinon.assert.calledThrice(onRoute);
         assert.equal(onRoute.firstCall.args[0].type.displayName, 'App');
@@ -221,7 +230,7 @@ describe('PathnameRouting with data dependencies', function() {
 
     it('routes to /about', function(done) {
       window.history.pushState({}, '', '/about');
-      PathnameRouting.start(routes, onRoute);
+      PathnameRouting.start(routes, onRoute.proxy);
       delay(function() {
         sinon.assert.calledThrice(onRoute);
         assert.equal(onRoute.firstCall.args[0].type.displayName, 'App');
@@ -243,11 +252,11 @@ describe('PathnameRouting with data dependencies', function() {
       appDataPromise = resolve('appData');
       pageDataPromise = resolve('pageData');
       aboutDataPromise = resolve('aboutData');
-      onRoute = sinon.spy();
+      onRoute = makeOnRoute();
     });
 
     it('routes to /', function(done) {
-      PathnameRouting.start(routes, onRoute);
+      PathnameRouting.start(routes, onRoute.proxy);
       delay(function() {
         sinon.assert.calledOnce(onRoute);
         assert.equal(onRoute.firstCall.args[0].type.displayName, 'App');
@@ -258,7 +267,7 @@ describe('PathnameRouting with data dependencies', function() {
 
     it('routes to /page', function(done) {
       window.history.pushState({}, '', '/page');
-      PathnameRouting.start(routes, onRoute);
+      PathnameRouting.start(routes, onRoute.proxy);
       delay(function() {
         sinon.assert.calledOnce(onRoute);
         assert.equal(onRoute.firstCall.args[0].type.displayName, 'App');
@@ -269,7 +278,7 @@ describe('PathnameRouting with data dependencies', function() {
 
     it('routes to /about', function(done) {
       window.history.pushState({}, '', '/about');
-      PathnameRouting.start(routes, onRoute);
+      PathnameRouting.start(routes, onRoute.proxy);
       delay(function() {
         sinon.assert.calledOnce(onRoute);
         assert.equal(onRoute.firstCall.args[0].type.displayName, 'App');

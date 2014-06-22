@@ -3,12 +3,12 @@
  */
 'use strict';
 
-var assert          = require('assert');
-var sinon           = require('sinon');
-var createView      = require('../createView');
-var getViewProps    = createView.getViewProps;
+var assert                  = require('assert');
+var sinon                   = require('sinon');
+var makeViewFactoryForMatch = require('../makeViewFactoryForMatch');
+var getViewProps            = makeViewFactoryForMatch.getViewProps;
 
-describe('createView', function() {
+describe('makeViewFactoryForMatch', function() {
 
   describe('getViewProps()', function() {
 
@@ -69,7 +69,7 @@ describe('createView', function() {
       ]
     };
 
-    var v = createView(match);
+    var v = makeViewFactoryForMatch(match)();
     assert.equal(v, 'view');
     sinon.assert.calledWith(view.spy, {a: 'a'});
   });
@@ -85,7 +85,7 @@ describe('createView', function() {
       ]
     };
 
-    var v = createView(match);
+    var v = makeViewFactoryForMatch(match)();
     assert.equal(v, 'view');
     sinon.assert.calledWith(view.spy, {a: 'a'});
   });
@@ -100,7 +100,7 @@ describe('createView', function() {
         {route: {}, props: {subView}}
       ]
     };
-    var v = createView(match);
+    var v = makeViewFactoryForMatch(match)();
 
     assert.equal(v, 'view');
     sinon.assert.calledOnce(view.spy);
@@ -121,7 +121,7 @@ describe('createView', function() {
         {route: {}, props: {subSubView, subSubProp: 'subSubProp'}}
       ]
     };
-    var v = createView(match);
+    var v = makeViewFactoryForMatch(match)();
 
     assert.equal(v, 'view');
     sinon.assert.calledOnce(view.spy);
@@ -144,7 +144,7 @@ describe('createView', function() {
         {route: {}, props: {subView, sub2View, subProp: 'subProp'}}
       ]
     };
-    var v = createView(match);
+    var v = makeViewFactoryForMatch(match)();
 
     assert.equal(v, 'view');
     sinon.assert.calledOnce(view.spy);

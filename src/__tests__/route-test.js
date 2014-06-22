@@ -32,44 +32,33 @@ describe('route', function() {
   );
 
   it('routes /', function(done) {
-    route(routes, '/').then(function(execute) {
-      execute(function(view, match, navigation) {
-        assert.equal(view.type.displayName, 'Main');
-        assert.deepEqual(navigation, {initial: true});
-        done();
-      });
+    route(routes, '/').then(function(View) {
+      var view = <View />;
+      assert.equal(view.type.displayName, 'Main');
+      done();
     }).catch(done);
   });
 
   it('routes /page', function(done) {
-    route(routes, '/page').then(function(execute) {
-      execute(function(view, match, navigation) {
-        assert.equal(view.type.displayName, 'Page');
-        assert.deepEqual(navigation, {initial: true});
-        done();
-      });
+    route(routes, '/page').then(function(View) {
+      var view = <View />;
+      assert.equal(view.type.displayName, 'Page');
+      done();
     }).catch(done);
   });
 
   it('routes /page?foo=bar', function(done) {
-    route(routes, '/page', 'foo=bar').then(function(execute) {
-      execute(function(view, match, navigation) {
-        assert.equal(view.type.displayName, 'Page');
-        assert.deepEqual(navigation, {initial: true});
-        assert.deepEqual(match.query, {foo: 'bar'});
-        done();
-      });
+    route(routes, '/page', 'foo=bar').then(function(View) {
+      var view = <View />;
+      assert.equal(view.type.displayName, 'Page');
     }).catch(done);
   });
 
   it('routes /page?foo=bar (parsed query)', function(done) {
-    route(routes, '/page', {foo: 'bar'}).then(function(execute) {
-      execute(function(view, match, navigation) {
-        assert.equal(view.type.displayName, 'Page');
-        assert.deepEqual(navigation, {initial: true});
-        assert.deepEqual(match.query, {foo: 'bar'});
-        done();
-      });
+    route(routes, '/page', {foo: 'bar'}).then(function(View) {
+      var view = <View />;
+      assert.equal(view.type.displayName, 'Page');
+      done();
     }).catch(done);
   });
 

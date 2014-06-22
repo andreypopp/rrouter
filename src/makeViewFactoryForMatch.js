@@ -53,12 +53,13 @@ function collectSubViews(props, subViews) {
 }
 
 /**
- * Create a view for which matches for a path with the provided routes
+ * Make view factory for a match object
  *
- * @param {Route} routes
- * @returns {Promise<ReactComponent>}
+ * @param {Match} match
+ * @param {Object} props
+ * @returns {ReactComponent}
  */
-function createView(match) {
+function makeViewFactoryForMatch(match) {
   var views = {};
 
   for (var i = match.activeTrace.length - 1; i >= 0; i--) {
@@ -68,10 +69,10 @@ function createView(match) {
     views = merge(views, collectSubViews(stepProps, views));
 
     if (step.route.view !== undefined) {
-      return step.route.view(merge(stepProps, views));
+      return makeViewFactory(step.route.view, merge(stepProps, views));
     }
   }
 }
 
-module.exports = createView;
+module.exports = makeViewFactoryForMatch;
 module.exports.getViewProps = getViewProps;

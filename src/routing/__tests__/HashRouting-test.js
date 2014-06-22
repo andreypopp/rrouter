@@ -15,6 +15,15 @@ function delay(func) {
   setTimeout(func, 10);
 }
 
+function makeOnRoute() {
+  var onRoute = sinon.spy();
+  onRoute.proxy = function(View, match, navigation) {
+    var view = <View />;
+    onRoute(view, match, navigation);
+  }
+  return onRoute;
+}
+
 describe('HashRouting', function() {
 
   var Main = React.createClass({
@@ -41,8 +50,8 @@ describe('HashRouting', function() {
   });
 
   it('starts routing', function(done) {
-    var onRoute = sinon.spy();
-    HashRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    HashRouting.start(routes, onRoute.proxy);
     delay(function() {
       sinon.assert.calledOnce(onRoute);
       assert.equal(onRoute.firstCall.args[0].type.displayName, 'Main');
@@ -52,8 +61,8 @@ describe('HashRouting', function() {
   });
 
   it('navigates to a different route', function(done) {
-    var onRoute = sinon.spy();
-    var routing = HashRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    var routing = HashRouting.start(routes, onRoute.proxy);
     delay(function() {
       routing.navigate('/page');
       delay(function() {
@@ -66,8 +75,8 @@ describe('HashRouting', function() {
   });
 
   it('navigates to a different route with custom navigation params', function(done) {
-    var onRoute = sinon.spy();
-    var routing = HashRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    var routing = HashRouting.start(routes, onRoute.proxy);
     delay(function() {
       routing.navigate('/page', {foo: 'bar'});
       delay(function() {
@@ -81,8 +90,8 @@ describe('HashRouting', function() {
   });
 
   it('navigates to a different route when query string changes', function(done) {
-    var onRoute = sinon.spy();
-    var routing = HashRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    var routing = HashRouting.start(routes, onRoute.proxy);
     delay(function() {
       routing.navigate('/page');
       routing.navigate('/page?foo=bar');
@@ -100,8 +109,8 @@ describe('HashRouting', function() {
   });
 
   it('reacts on hashchange', function(done) {
-    var onRoute = sinon.spy();
-    var routing = HashRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    var routing = HashRouting.start(routes, onRoute.proxy);
     delay(function() {
       routing.navigate('/page');
       delay(function() {
@@ -119,8 +128,8 @@ describe('HashRouting', function() {
   });
 
   it('generates href', function() {
-    var onRoute = sinon.spy();
-    var routing = HashRouting.start(routes, onRoute);
+    var onRoute = makeOnRoute();
+    var routing = HashRouting.start(routes, onRoute.proxy);
     assert.equal(routing.makeHref('main'), '#/');
     assert.equal(routing.makeHref('page'), '#/page');
   });

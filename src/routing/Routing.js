@@ -3,12 +3,12 @@
  */
 'use strict';
 
-var React                 = require('react');
-var createView            = require('../createView');
-var matchRoutes           = require('../matchRoutes');
-var data                  = require('../data');
-var fetchViews            = require('../fetchViews');
-var makeHref              = require('../makeHref');
+var React           = require('react');
+var makeViewFactory = require('../makeViewFactoryForMatch');
+var matchRoutes     = require('../matchRoutes');
+var data            = require('../data');
+var fetchViews      = require('../fetchViews');
+var makeHref        = require('../makeHref');
 
 function throwError(err) {
   throw err;
@@ -22,8 +22,8 @@ class Routing {
     this.onError = onError || throwError;
     this.onChange = this.onChange.bind(this);
     this.onBackButton = this.onBackButton.bind(this);
-    this.path = undefined;
-    this.match = undefined;
+    this.path = null;
+    this.match = null;
     this.started = false;
   }
 
@@ -70,12 +70,17 @@ class Routing {
     return this.match;
   }
 
+  createViewFactory(match) {
+    var context = {routing: this};
+    var viewFactory = makeViewFactory(match);
+    return function contextualViewFactory(props) {
+      return React.withContext(context, () => viewFactory(props));
+    }
+  }
+
   renderView(match, navigation) {
-    var context = {match, routing: this, routes: this.routes};
-    React.withContext(context, () => {
-      var view = createView(match);
-      this.onRoute(view, match, navigation);
-    });
+    var viewFactory = this.createViewFactory(match);
+    this.onRoute(viewFactory, match, navigation);
   }
 
   navigate(path, navigation) {
