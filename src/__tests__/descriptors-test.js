@@ -27,8 +27,13 @@ describe('Route', function() {
         <Route name="a" />,
         <Route name="b" />
       ];
-      var routes = <Routes>{subroutes}</Routes>;
-      assert.equal(routes.children.length, 2);
+      var routes = (
+        <Routes>
+          {subroutes}
+          <Route name="c" />
+        </Routes>
+      );
+      assert.equal(routes.children.length, 3);
     });
 
     it('creates routes with RegExp', function() {

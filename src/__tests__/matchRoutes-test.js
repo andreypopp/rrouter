@@ -135,6 +135,60 @@ describe('matchRoutes', function() {
       ]
     });
   });
+
+  describe('static blog routes', function() {
+
+    var routes = (
+      <Routes>
+        {[<Route path="/" name="main" />,
+          <Route path="/index.html" name="main2" />]}
+        <Route path="/posts/:post.html" name="post" />
+      </Routes>
+    );
+
+    itMatches(routes, '/', {
+      path: '/',
+      query: {},
+      route: routes.children[0],
+      trace: [
+        {route: routes, match: {}, props: {query: {}}},
+        {route: routes.children[0], match: {}, props: {query: {}}}
+      ],
+      activeTrace: [
+        {route: routes, match: {}, props: {query: {}}},
+        {route: routes.children[0], match: {}, props: {query: {}}}
+      ]
+    });
+
+    itMatches(routes, '/index.html', {
+      path: '/index.html',
+      query: {},
+      route: routes.children[1],
+      trace: [
+        {route: routes, match: {_: ['/index.html/']}, props: {query: {}}},
+        {route: routes.children[1], match: {}, props: {query: {}}}
+      ],
+      activeTrace: [
+        {route: routes, match: {_: ['/index.html/']}, props: {query: {}}},
+        {route: routes.children[1], match: {}, props: {query: {}}}
+      ]
+    });
+
+    itMatches(routes, '/posts/some-post.html', {
+      path: '/posts/some-post.html',
+      query: {},
+      route: routes.children[2],
+      trace: [
+        {route: routes, match: {_: ['/posts/some-post.html/']}, props: {query: {}}},
+        {route: routes.children[2], match: {'post.html': 'some-post.html'}, props: {query: {}}}
+      ],
+      activeTrace: [
+        {route: routes, match: {_: ['/posts/some-post.html/']}, props: {query: {}}},
+        {route: routes.children[2], match: {'post.html': 'some-post.html'}, props: {query: {}}}
+      ]
+    });
+
+  });
   
   describe('matching nested routing structures', function() {
   
