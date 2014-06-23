@@ -16,8 +16,8 @@ var getStepProps  = require('./getStepProps');
  * @returns {Function}
  */
 function makeTask(fetch, deferred) {
-  return function start(props, promises) {
-    var promise = fetch(props, promises);
+  return function start(props, promises, match) {
+    var promise = fetch(props, promises, match);
 
     if (promise.isFulfilled()) {
       deferred.resolve(promise.value());
@@ -45,7 +45,7 @@ var isPromisePropRe = /([a-zA-Z0-9]+)Promise$/;
  * @param {Object} props
  * @returns {Promise<Object>}
  */
-function fetchProps(props) {
+function fetchProps(props, match) {
   var newProps = {};
 
   var deferreds = {};
@@ -74,7 +74,7 @@ function fetchProps(props) {
   var isFulfilled = true;
 
   for (name in tasks) {
-    var promise = tasks[name](newProps, deferreds);
+    var promise = tasks[name](newProps, deferreds, match);
     isFulfilled = isFulfilled && promise.isFulfilled();
     promises[name] = promise.isFulfilled() ? promise.value() : promise;
   }
@@ -93,8 +93,8 @@ function fetchProps(props) {
     });
 }
 
-function fetchStep(step) {
-  var props = fetchProps(getStepProps(step));
+function fetchStep(step, match) {
+  var props = fetchProps(getStepProps(step), match);
   // step is resolved, shortcircuit!
   if (props.isFulfilled()) {
     return Promise.resolve(
@@ -110,7 +110,7 @@ function fetchProgressively(match, onProgress, onError) {
   var latch = activeTrace.length;
 
   activeTrace.forEach((step, idx) => {
-    var promise = fetchStep(step);
+    var promise = fetchStep(step, match);
 
     if (promise.isFulfilled()) {
       latch = latch - 1;
@@ -129,8 +129,9 @@ function fetchProgressively(match, onProgress, onError) {
 }
 
 function fetch(match) {
-  return Promise.all(match.activeTrace.map(fetchStep))
-    .then((activeTrace) => merge(match, {activeTrace}));
+  return Promise.all(match.activeTrace.map(function(step) {
+    return fetchStep(step, match);
+  })).then((activeTrace) => merge(match, {activeTrace}));
 }
 
 module.exports = {
