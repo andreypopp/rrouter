@@ -15,7 +15,7 @@ var slashes = /(^\/)|(\/$)/g;
  * @returns {Route}
  */
 function Route(props) {
-  props = props || {};
+  props = props ? merge({}, props) : {};
 
   var path = props.path;
 
