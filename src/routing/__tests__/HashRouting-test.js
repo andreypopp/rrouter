@@ -20,7 +20,7 @@ function makeOnRoute() {
   onRoute.proxy = function(View, match, navigation) {
     var view = <View />;
     onRoute(view, match, navigation);
-  }
+  };
   return onRoute;
 }
 

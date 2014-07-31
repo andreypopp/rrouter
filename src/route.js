@@ -3,7 +3,6 @@
  */
 'use strict';
 
-var React         = require('react');
 var Promise       = require('bluebird');
 var matchRoutes   = require('./matchRoutes');
 var data          = require('./data');

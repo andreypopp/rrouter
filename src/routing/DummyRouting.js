@@ -26,11 +26,11 @@ class DummyRouting extends Routing {
     throw new Error('not implemented');
   }
 
-  pushPath(path) {
+  pushPath() {
     throw new Error('not implemented');
   }
 
-  replacePath(path) {
+  replacePath() {
     throw new Error('not implemented');
   }
 

@@ -21,7 +21,7 @@ function makeOnRoute() {
   onRoute.proxy = function(View, match, navigation) {
     var view = <View />;
     onRoute(view, match, navigation);
-  }
+  };
   return onRoute;
 }
 
@@ -147,7 +147,7 @@ describe('PathnameRouting with data dependencies', function() {
       return <div>{this.props.page({ref: 'page'})}</div>;
     }
   });
-  
+
   var Main = React.createClass({
     render: function() {
       return <div>main</div>;
@@ -171,7 +171,7 @@ describe('PathnameRouting with data dependencies', function() {
       setTimeout(resolve.bind(null, value), ms));
     return promise;
   }
-  
+
   var resolve = Promise.resolve.bind(Promise);
 
   var appDataPromise, pageDataPromise, aboutDataPromise;

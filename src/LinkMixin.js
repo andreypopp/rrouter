@@ -6,7 +6,6 @@
 var React               = require('react');
 var invariant           = require('./invariant');
 var RoutingContextMixin = require('./RoutingContextMixin');
-var makeHref            = require('./makeHref');
 
 var LinkMixin = {
   mixins: [RoutingContextMixin],

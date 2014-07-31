@@ -76,7 +76,7 @@ class Routing {
     var viewFactory = makeViewFactory(match);
     return function contextualViewFactory(props) {
       return React.withContext(context, () => viewFactory(props));
-    }
+    };
   }
 
   navigate(path, navigation) {
