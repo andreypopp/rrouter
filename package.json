@@ -10,7 +10,7 @@
     "README.md"
   ],
   "dependencies": {
-    "qs": "^0.6.6",
+    "qs": "^1.2.1",
     "url-pattern": "^0.6.0"
   },
   "peerDependencies": {
