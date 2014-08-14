@@ -33,7 +33,7 @@ component, you just specify ``href`` property with desired URL::
   <Link href="/about">About page</Link>
 
 This works well but not so convenient when you need to generate a link to a
-route with parameters. Instead you can make ``<Link>>`` automatically generate
+route with parameters. Instead you can make ``<Link>`` automatically generate
 ``href`` for you.
 
 Automatically generating ``href`` using route references
