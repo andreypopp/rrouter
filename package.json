@@ -38,7 +38,8 @@
   },
   "keywords": [
     "react",
-    "router"
+    "router",
+    "react-component"
   ],
   "author": "Andrey Popp <8mayday@gmail.com>",
   "license": "MIT",
