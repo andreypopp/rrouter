@@ -1,0 +1,327 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Routing configuration &mdash; rrouter 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/overrides.css" type="text/css" />
+  
+    <link rel="top" title="rrouter 0.1.0 documentation" href="index.html"/>
+        <link rel="next" title="Navigation" href="navigation.html"/>
+        <link rel="prev" title="Getting started" href="usage.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> rrouter</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">RRouter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#with-commonjs">With CommonJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#with-amd">With AMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#by-including-rrouter-with-script-element">By including RRouter with &lt;script&gt; element</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Routing configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameters-in-url-pattern">Parameters in URL pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#passing-arbitrary-props-to-a-view">Passing arbitrary props to a view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nested-routes">Nested routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#named-routes">Named routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#promise-props">Promise-props</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#using-link-component">Using <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#using-programmatic-navigation">Using programmatic navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data-fetching.html">Data-fetching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data-fetching.html#basic-usage">Basic usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-fetching.html#handling-dependencies-between-data">Handling dependencies between data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-fetching.html#relevant-examples">Relevant examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="composing-routes.html">Composing routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server-side-rendering.html">Server-side rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/animated-page-transition.html">Animated page transition example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/master-detail.html">Master-detail example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="related-work.html">Related work</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">rrouter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Routing configuration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/routing-configuration.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="routing-configuration">
+<h1>Routing configuration<a class="headerlink" href="#routing-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Routing is configured using <tt class="docutils literal"><span class="pre">Route</span></tt> and <tt class="docutils literal"><span class="pre">Routes</span></tt> functions which produce
+route descriptors:</p>
+<div class="highlight-python"><div class="highlight"><pre>var RRouter = require(&#39;rrouter&#39;)
+
+var Route = RRouter.Route
+var Routes = RRouter.Routes
+</pre></div>
+</div>
+<p>The difference between <tt class="docutils literal"><span class="pre">Routes</span></tt> and <tt class="docutils literal"><span class="pre">Route</span></tt> is that <tt class="docutils literal"><span class="pre">Routes</span></tt> should be
+used at the top-level.</p>
+<div class="inline admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">see <a class="reference internal" href="composing-routes.html"><em>Composing routes</em></a> for the detailed explanation of the differences
+between <tt class="docutils literal"><span class="pre">Routes</span></tt> and <tt class="docutils literal"><span class="pre">Route</span></tt></p>
+</div>
+<p>The basic routing configuration can look like:</p>
+<div class="highlight-python"><div class="highlight"><pre>var routes = (
+  &lt;Routes&gt;
+    &lt;Route path=&quot;/&quot; view={Main} /&gt;
+    &lt;Route path=&quot;/about&quot; view={About} /&gt;
+  &lt;/Routes&gt;
+)
+</pre></div>
+</div>
+<p>Property <tt class="docutils literal"><span class="pre">path</span></tt> specifies the URL pattern for the route, <tt class="docutils literal"><span class="pre">view</span></tt> specifies
+which component should be instantiated when the route&#8217;s URL pattern matches the
+current active path.</p>
+<div class="section" id="parameters-in-url-pattern">
+<h2>Parameters in URL pattern<a class="headerlink" href="#parameters-in-url-pattern" title="Permalink to this headline">¶</a></h2>
+<p>URL pattern can have parameters which are matched against a single URL path
+segment. This is similar to how <a class="reference external" href="http://expressjs.com/">Express</a> works:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;Routes&gt;
+  ...
+  &lt;Route path=&quot;/users/:username&quot; view={User} /&gt;
+  ...
+&lt;/Routes&gt;
+</pre></div>
+</div>
+<p>Route&#8217;s view gets all parameters extracted from URL as props. Given the rout
+configuration above, on URL <tt class="docutils literal"><span class="pre">/users/john</span></tt> route will match and <tt class="docutils literal"><span class="pre">User</span></tt> view
+will be created with <tt class="docutils literal"><span class="pre">{username:</span> <span class="pre">&quot;john&quot;}</span></tt> as props.</p>
+</div>
+<div class="section" id="passing-arbitrary-props-to-a-view">
+<h2>Passing arbitrary props to a view<a class="headerlink" href="#passing-arbitrary-props-to-a-view" title="Permalink to this headline">¶</a></h2>
+<p>You can pass arbitrary props into view by setting them on a corresponding
+route:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;Routes&gt;
+  ...
+  &lt;Route path=&quot;/users&quot; view={Users} someProp=&quot;hello&quot; /&gt;
+  ...
+&lt;/Routes&gt;
+</pre></div>
+</div>
+<p>In the example above <tt class="docutils literal"><span class="pre">Users</span></tt> view will be created with <tt class="docutils literal"><span class="pre">{someProp:</span> <span class="pre">&quot;hello&quot;}</span></tt>
+as props.</p>
+<p>The only props which won&#8217;t be passed to a view are those which have a special
+meaning to RRouter: <tt class="docutils literal"><span class="pre">name</span></tt>, <tt class="docutils literal"><span class="pre">path</span></tt> and <tt class="docutils literal"><span class="pre">view</span></tt>.</p>
+<p>In the case of the nested routing configuration props will be collected along
+the matched routes. More specific routes&#8217; props will override less specific.</p>
+</div>
+<div class="section" id="nested-routes">
+<h2>Nested routes<a class="headerlink" href="#nested-routes" title="Permalink to this headline">¶</a></h2>
+<p>Routing configuration can be defined in such a way that some of the routes are
+nested inside others:</p>
+<div class="highlight-python"><div class="highlight"><pre>var routes = (
+  &lt;Routes&gt;
+    &lt;Route path=&quot;/&quot; view={Main} /&gt;
+    &lt;Route path=&quot;/items&quot; view={Items}&gt;
+      &lt;Route path=&quot;/all&quot; view={AllItem}&gt;
+      &lt;Route path=&quot;/:id&quot; view={Item}&gt;
+    &lt;/Route&gt;
+  &lt;/Routes&gt;
+)
+</pre></div>
+</div>
+<p>That can be used when some of the routes shares a part of the configuration.</p>
+</div>
+<div class="section" id="named-routes">
+<h2>Named routes<a class="headerlink" href="#named-routes" title="Permalink to this headline">¶</a></h2>
+<p>Routes can have a <tt class="docutils literal"><span class="pre">name</span></tt> property which allows to reference a route inside the
+routing configuration. For example, route references are used by <tt class="docutils literal"><span class="pre">Link</span></tt>
+component (see <a class="reference internal" href="navigation.html"><em>Navigation</em></a>) to generate <tt class="docutils literal"><span class="pre">href</span></tt> automatically for a
+specified (by reference) route:</p>
+<div class="highlight-python"><div class="highlight"><pre>var routes = (
+  &lt;Routes&gt;
+    &lt;Route name=&quot;main&quot; path=&quot;/&quot; view={Main} /&gt;
+    &lt;Route name=&quot;items&quot; path=&quot;/items&quot; view={Items}&gt;
+      &lt;Route name=&quot;all&quot; path=&quot;/all&quot; view={AllItem}&gt;
+      &lt;Route name=&quot;item&quot; path=&quot;/:id&quot; view={Item}&gt;
+    &lt;/Route&gt;
+  &lt;/Routes&gt;
+)
+</pre></div>
+</div>
+<div class="inline admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Route references which starts with <tt class="docutils literal"><span class="pre">/</span></tt> character are called absolute route
+references. There exists also relative route references, see
+<a class="reference internal" href="composing-routes.html"><em>Composing routes</em></a> for the detailed discussion on this.</p>
+</div>
+<p>Route references reflect the route hierarchy. Thus the reference for route with
+<tt class="docutils literal"><span class="pre">main</span></tt> name is <tt class="docutils literal"><span class="pre">/main</span></tt>, for route with name <tt class="docutils literal"><span class="pre">item</span></tt> inside route with name
+<tt class="docutils literal"><span class="pre">items</span></tt> — <tt class="docutils literal"><span class="pre">/items/item</span></tt> and so on.</p>
+</div>
+<div class="section" id="promise-props">
+<h2>Promise-props<a class="headerlink" href="#promise-props" title="Permalink to this headline">¶</a></h2>
+<p>If an arbitrary prop set on route has <tt class="docutils literal"><span class="pre">Promise</span></tt> suffix then this prop is
+considered a data dependency for a route. The value of such prop should be a
+function which returns a promise:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;Routes&gt;
+  ...
+  &lt;Route path=&quot;/users&quot; view={Users} usersPromise={fetchUsers} /&gt;
+  ...
+&lt;/Routes&gt;
+</pre></div>
+</div>
+<p>RRouter collects all data dependencies and evaluates them before creating the
+matched view. That way route can get data fetched from a database or from a
+remote API.</p>
+<p>In the example above <tt class="docutils literal"><span class="pre">Users</span></tt> view will be called with <tt class="docutils literal"><span class="pre">{users:</span> <span class="pre">...}</span></tt> as
+props.</p>
+<p>See <a class="reference internal" href="data-fetching.html"><em>Data-fetching</em></a> for a thoughtful explanation of data dependencies
+concept.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="navigation.html" class="btn btn-neutral float-right" title="Navigation"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="usage.html" class="btn btn-neutral" title="Getting started"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Andrey Popp.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/bundle.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

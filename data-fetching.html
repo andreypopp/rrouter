@@ -1,0 +1,287 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data-fetching &mdash; rrouter 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/overrides.css" type="text/css" />
+  
+    <link rel="top" title="rrouter 0.1.0 documentation" href="index.html"/>
+        <link rel="next" title="Composing routes" href="composing-routes.html"/>
+        <link rel="prev" title="Navigation" href="navigation.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> rrouter</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">RRouter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#with-commonjs">With CommonJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#with-amd">With AMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#by-including-rrouter-with-script-element">By including RRouter with &lt;script&gt; element</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="routing-configuration.html">Routing configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#parameters-in-url-pattern">Parameters in URL pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#passing-arbitrary-props-to-a-view">Passing arbitrary props to a view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#nested-routes">Nested routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#named-routes">Named routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#promise-props">Promise-props</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#using-link-component">Using <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#using-programmatic-navigation">Using programmatic navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Data-fetching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#handling-dependencies-between-data">Handling dependencies between data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relevant-examples">Relevant examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="composing-routes.html">Composing routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server-side-rendering.html">Server-side rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/animated-page-transition.html">Animated page transition example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/master-detail.html">Master-detail example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="related-work.html">Related work</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">rrouter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Data-fetching</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/data-fetching.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="data-fetching">
+<h1>Data-fetching<a class="headerlink" href="#data-fetching" title="Permalink to this headline">¶</a></h1>
+<p>RRouter let you specify how to fetch data for for any route. To do that you need
+to assign <tt class="docutils literal"><span class="pre">*Promise</span></tt> props for a route.</p>
+<div class="inline admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We call <tt class="docutils literal"><span class="pre">*Promise</span></tt> props such props which have <tt class="docutils literal"><span class="pre">Promise</span></tt> suffix, like
+<tt class="docutils literal"><span class="pre">userProfilePromise</span></tt> and so on.</p>
+</div>
+<p>A value of <tt class="docutils literal"><span class="pre">*Promise</span></tt> prop should be a function which is called with available
+props and returns a promise which resolves to some value which will be assigned
+to the corresponding key of the <tt class="docutils literal"><span class="pre">props</span></tt> before rendering the view.</p>
+<div class="section" id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>The basic example would be:</p>
+<div class="highlight-python"><div class="highlight"><pre>function fetchUser(props) {
+  return getUserByUsernameFromDatabase(props.username)
+}
+
+var routes = (
+  &lt;Routes&gt;
+    &lt;Route userPromise={fetchUser} path=&quot;/users/:username&quot; view={User} /&gt;
+  &lt;/Routes&gt;
+)
+</pre></div>
+</div>
+<div class="inline admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note the conversion of prop&#8217;s name from <tt class="docutils literal"><span class="pre">userPromise=</span></tt> to <tt class="docutils literal"><span class="pre">user</span></tt>. This is
+the convention taken by RRouter.</p>
+</div>
+<p>When browser hits <tt class="docutils literal"><span class="pre">/users/john</span></tt>, <tt class="docutils literal"><span class="pre">fetchUser</span></tt> will be called with props
+extracted from URL (namely <tt class="docutils literal"><span class="pre">username</span></tt>). It returns a promise, a resolved value
+of which will be assigned to <tt class="docutils literal"><span class="pre">user</span></tt> prop of the final props passed to <tt class="docutils literal"><span class="pre">User</span></tt>
+view. The call to instantiate <tt class="docutils literal"><span class="pre">User</span></tt> component will look like:</p>
+<div class="highlight-python"><div class="highlight"><pre>var view = &lt;User username={usernameFromURL} user={userFromFetchUser} /&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="handling-dependencies-between-data">
+<h2>Handling dependencies between data<a class="headerlink" href="#handling-dependencies-between-data" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you have a view which should receive a few props but these props are
+interdependent. You can&#8217;t fetch them in parallel because data from one prop is
+needed to construct a query to fetch another prop.</p>
+<p>RRouter let&#8217;s you express those dependencies by combining promises as you do
+usually via <tt class="docutils literal"><span class="pre">.then()</span></tt> method. When calling <tt class="docutils literal"><span class="pre">*Promise</span></tt> functions it passes
+<tt class="docutils literal"><span class="pre">promises</span></tt> object as second argument, each value of the object is a promise
+for another <tt class="docutils literal"><span class="pre">*Promise</span></tt> prop:</p>
+<div class="highlight-python"><div class="highlight"><pre>var routes = (
+  &lt;Routes&gt;
+    &lt;Route
+      userPromise={fetchUser}
+      userAlbumsPromise={fetchUserAlbums}
+      path=&quot;/users/:username&quot;
+      view={User}
+      /&gt;
+  &lt;/Routes&gt;
+)
+
+function fetchUserAlbums(props, promises) {
+  return promises.user.then(function(user) {
+    return getAlbumsFromDatabase(user.username, user.someData)
+  })
+}
+</pre></div>
+</div>
+<div class="inline admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">It is possible to produce a deadlock. For example, if <tt class="docutils literal"><span class="pre">fetchA</span></tt> depends on
+<tt class="docutils literal"><span class="pre">fetchB</span></tt> and vice-versa then they will never return and will wait
+indefinitely.</p>
+</div>
+<p>In the example above <tt class="docutils literal"><span class="pre">fetchUserAlbums</span></tt> waits for <tt class="docutils literal"><span class="pre">fetchUser</span></tt> to complete and
+only then uses some info from <tt class="docutils literal"><span class="pre">user</span></tt> prop value (just fetched via
+<tt class="docutils literal"><span class="pre">fetchUser</span></tt>) to construct a query to database.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><span class="pre">*Promise</span></tt> prop can depend on other <tt class="docutils literal"><span class="pre">*Promise</span></tt> prop only if they are
+defined for the same route. This restriction might be lifted in the future and
+enable interdependencies between data from different routes.</p>
+</div>
+</div>
+<div class="section" id="relevant-examples">
+<h2>Relevant examples<a class="headerlink" href="#relevant-examples" title="Permalink to this headline">¶</a></h2>
+<p>There is <a class="reference internal" href="examples/master-detail.html"><em>Master-detail example</em></a> which uses data-fetching.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="composing-routes.html" class="btn btn-neutral float-right" title="Composing routes"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="navigation.html" class="btn btn-neutral" title="Navigation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Andrey Popp.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/bundle.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

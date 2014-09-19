@@ -1,0 +1,301 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting started &mdash; rrouter 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/overrides.css" type="text/css" />
+  
+    <link rel="top" title="rrouter 0.1.0 documentation" href="index.html"/>
+        <link rel="next" title="Routing configuration" href="routing-configuration.html"/>
+        <link rel="prev" title="RRouter" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> rrouter</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">RRouter</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#with-commonjs">With CommonJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#with-amd">With AMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#by-including-rrouter-with-script-element">By including RRouter with &lt;script&gt; element</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="routing-configuration.html">Routing configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#parameters-in-url-pattern">Parameters in URL pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#passing-arbitrary-props-to-a-view">Passing arbitrary props to a view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#nested-routes">Nested routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#named-routes">Named routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#promise-props">Promise-props</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#using-link-component">Using <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#using-programmatic-navigation">Using programmatic navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data-fetching.html">Data-fetching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data-fetching.html#basic-usage">Basic usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-fetching.html#handling-dependencies-between-data">Handling dependencies between data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-fetching.html#relevant-examples">Relevant examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="composing-routes.html">Composing routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server-side-rendering.html">Server-side rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/animated-page-transition.html">Animated page transition example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/master-detail.html">Master-detail example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="related-work.html">Related work</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">rrouter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/usage.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="with-commonjs">
+<h2>With CommonJS<a class="headerlink" href="#with-commonjs" title="Permalink to this headline">¶</a></h2>
+<p>The recommended way to use RRouter is via a CommonJS package which is
+distributed on <a class="reference external" href="http://npmjs.org">npm</a>. To install the RRouter you need to have an <tt class="docutils literal"><span class="pre">npm</span></tt> command
+line tool installed (comes with a Node.js distribution):</p>
+<div class="highlight-python"><div class="highlight"><pre>% npm install rrouter react
+</pre></div>
+</div>
+<p>This command will install both RRouter and React from npm.</p>
+<p>Now create an <tt class="docutils literal"><span class="pre">index.js</span></tt> file which will serve as an entry point to your React
+application.</p>
+<div class="inline admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We will assume that your entire application lives in a single file
+for the sake of simplicity. When your application grows CommonJS module system
+makes it easy to factor your application in a set of separate modules.</p>
+</div>
+<p>First, we need to bring <tt class="docutils literal"><span class="pre">React</span></tt> and <tt class="docutils literal"><span class="pre">RRouter</span></tt> into scope:</p>
+<div class="highlight-python"><div class="highlight"><pre>var React = require(&#39;react&#39;)
+var RRouter = require(&#39;rrouter&#39;)
+var Routes = RRouter.Routes
+var Route = RRouter.Route
+</pre></div>
+</div>
+<p>Now we are going to define routes for two URLs, <tt class="docutils literal"><span class="pre">/</span></tt> and <tt class="docutils literal"><span class="pre">about</span></tt>. We need to
+define React component first which will serve as views for those URLs:</p>
+<div class="highlight-python"><div class="highlight"><pre>var MainPage = React.createClass({
+  render: function() {
+    return &lt;div&gt;Main page&lt;/div&gt;
+  }
+})
+
+var AboutPage = React.createClass({
+  render: function() {
+    return &lt;div&gt;About&lt;/div&gt;
+  }
+})
+</pre></div>
+</div>
+<p>Now we define routes using familiar JSX syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre>var routes = (
+  &lt;Routes&gt;
+    &lt;Route path=&quot;/&quot; view={MainPage} /&gt;
+    &lt;Route path=&quot;/about&quot; view={AboutPage} /&gt;
+  &lt;/Routes&gt;
+)
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">MainPage</span></tt> and <tt class="docutils literal"><span class="pre">AboutPage</span></tt> will be rendered when browser hits <tt class="docutils literal"><span class="pre">/</span></tt> or
+<tt class="docutils literal"><span class="pre">/about</span></tt> paths correspondingly. To start routing we need to initialize RRouter
+with routes and a function which would handle rendering a currently active view
+into DOM:</p>
+<div class="highlight-python"><div class="highlight"><pre>RRouter.start(routes, function(view) {
+  React.renderComponent(view, document.body);
+})
+</pre></div>
+</div>
+<p>Now we need to create an <tt class="docutils literal"><span class="pre">index.html</span></tt> file which would serve as a container
+for our application:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;!doctype html&gt;
+&lt;body&gt;
+  &lt;script src=&quot;/bundle.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</pre></div>
+</div>
+<p>The final part is to produce a <tt class="docutils literal"><span class="pre">bundle.js</span></tt> file which would include code for
+our application in <tt class="docutils literal"><span class="pre">index.js</span></tt> along with React and RRouter libraries. We will
+use <a class="reference external" href="http://browserify.org">browserify</a> bundler for that.</p>
+<div class="inline admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Another option is to use <a class="reference external" href="http://webpack.github.io">webpack</a> bundler which is more powerful but is more
+complex for initial configuration. It also supports CommonJS so you can switch
+from browserify to webpack at any time.</p>
+</div>
+<p>Install browserify from npm and execute it on <tt class="docutils literal"><span class="pre">index.js</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre>% npm install -g browserify
+% browserify index.js &gt; bundle.js
+</pre></div>
+</div>
+<p>Now you can serve <tt class="docutils literal"><span class="pre">index.html</span></tt> via your favourite web server (Apache on nginx)
+and see the app rendering the correct view both for <tt class="docutils literal"><span class="pre">/</span></tt> and <tt class="docutils literal"><span class="pre">/about</span></tt> URLs.</p>
+</div>
+<div class="section" id="with-amd">
+<h2>With AMD<a class="headerlink" href="#with-amd" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please send a pull-request with documentation on how to use RRouter with an
+AMD loader.</p>
+</div>
+</div>
+<div class="section" id="by-including-rrouter-with-script-element">
+<h2>By including RRouter with &lt;script&gt; element<a class="headerlink" href="#by-including-rrouter-with-script-element" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please send a pull-request with documentation on how to use RRouter by
+including it as a <tt class="docutils literal"><span class="pre">&lt;script&gt;</span></tt> element.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="routing-configuration.html" class="btn btn-neutral float-right" title="Routing configuration"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="RRouter"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Andrey Popp.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/bundle.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

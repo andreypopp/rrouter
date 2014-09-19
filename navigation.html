@@ -1,0 +1,290 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Navigation &mdash; rrouter 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/overrides.css" type="text/css" />
+  
+    <link rel="top" title="rrouter 0.1.0 documentation" href="index.html"/>
+        <link rel="next" title="Data-fetching" href="data-fetching.html"/>
+        <link rel="prev" title="Routing configuration" href="routing-configuration.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> rrouter</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">RRouter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#with-commonjs">With CommonJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#with-amd">With AMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#by-including-rrouter-with-script-element">By including RRouter with &lt;script&gt; element</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="routing-configuration.html">Routing configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#parameters-in-url-pattern">Parameters in URL pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#passing-arbitrary-props-to-a-view">Passing arbitrary props to a view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#nested-routes">Nested routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#named-routes">Named routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-configuration.html#promise-props">Promise-props</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-link-component">Using <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-programmatic-navigation">Using programmatic navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data-fetching.html">Data-fetching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data-fetching.html#basic-usage">Basic usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-fetching.html#handling-dependencies-between-data">Handling dependencies between data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-fetching.html#relevant-examples">Relevant examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="composing-routes.html">Composing routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server-side-rendering.html">Server-side rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/animated-page-transition.html">Animated page transition example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/master-detail.html">Master-detail example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="related-work.html">Related work</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">rrouter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Navigation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/navigation.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="navigation">
+<h1>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h1>
+<p>RRouter provide several means to navigate between routes of an application. The
+most preferred one is to <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component.</p>
+<p>For the example code below we will use the following routing configuration:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;Routes&gt;
+  &lt;Route name=&quot;main&quot; path=&quot;/&quot; view={Main} /&gt;
+  &lt;Route name=&quot;about&quot; path=&quot;/about&quot; view={About} /&gt;
+  &lt;Route name=&quot;users&quot; path=&quot;/users&quot;&gt;
+    &lt;Route name=&quot;user&quot; path=&quot;:username&quot; view={User} /&gt;
+  &lt;/Route&gt;
+&lt;/Routes&gt;
+</pre></div>
+</div>
+<div class="section" id="using-link-component">
+<h2>Using <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component<a class="headerlink" href="#using-link-component" title="Permalink to this headline">¶</a></h2>
+<p>RRouter provides <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component which renders into <tt class="docutils literal"><span class="pre">&lt;a&gt;</span></tt> DOM component
+but handles <tt class="docutils literal"><span class="pre">onClick</span></tt> by triggering a navigation instead of reloading the
+page. First we need to bring <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component into scope:</p>
+<div class="highlight-python"><div class="highlight"><pre>var RRouter = require(&#39;rrouter&#39;)
+var Link = RRouter.Link
+</pre></div>
+</div>
+<div class="section" id="setting-href-property-manually">
+<h3>Setting <tt class="docutils literal"><span class="pre">href</span></tt> property manually<a class="headerlink" href="#setting-href-property-manually" title="Permalink to this headline">¶</a></h3>
+<p>The simplest usage of <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component is analogues to <tt class="docutils literal"><span class="pre">&lt;a&gt;</span></tt> DOM
+component, you just specify <tt class="docutils literal"><span class="pre">href</span></tt> property with desired URL:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;Link href=&quot;/about&quot;&gt;About page&lt;/Link&gt;
+</pre></div>
+</div>
+<p>This works well but not so convenient when you need to generate a link to a
+route with parameters. Instead you can make <tt class="docutils literal"><span class="pre">&lt;Link&gt;&gt;</span></tt> automatically generate
+<tt class="docutils literal"><span class="pre">href</span></tt> for you.</p>
+</div>
+<div class="section" id="automatically-generating-href-using-route-references">
+<h3>Automatically generating <tt class="docutils literal"><span class="pre">href</span></tt> using route references<a class="headerlink" href="#automatically-generating-href-using-route-references" title="Permalink to this headline">¶</a></h3>
+<p>We can generate a <tt class="docutils literal"><span class="pre">href</span></tt> to a route named <tt class="docutils literal"><span class="pre">main</span></tt> with the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;Link to=&quot;/main&quot;&gt;Main&lt;/Link&gt;
+</pre></div>
+</div>
+<div class="inline admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Route references respect hierarchy of routes. For example to reference a route
+with <tt class="docutils literal"><span class="pre">User</span></tt> view we use <tt class="docutils literal"><span class="pre">/users/user</span></tt> reference.</p>
+</div>
+<p>Note that instead of passing <tt class="docutils literal"><span class="pre">href</span></tt> we pass <tt class="docutils literal"><span class="pre">to</span></tt> property with a reference
+to the route with <tt class="docutils literal"><span class="pre">Main</span></tt> view. The value of <tt class="docutils literal"><span class="pre">to</span></tt> property is called a route
+reference. It&#8217;s a way to reference a specific route inside routing
+configuration.</p>
+<p>The advantage of using <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component with route references is more
+visible when we try to generate a link to a route with parameters:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;Link to=&quot;/users/user&quot; user=&quot;john&quot;&gt;Profile&lt;/Link&gt;
+</pre></div>
+</div>
+<p>This will produce a link to <tt class="docutils literal"><span class="pre">/users/john</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="using-programmatic-navigation">
+<h2>Using programmatic navigation<a class="headerlink" href="#using-programmatic-navigation" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to do a programmatic navigation using a routing instance returned
+by <tt class="docutils literal"><span class="pre">RRouter.start()</span></tt> call:</p>
+<div class="inline admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Programmatic in a sense of imperativeness as opposed to declarative style
+navigation using <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component.</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>var routing = RRouter.start(routes, function(view) { ... })
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">routing</span></tt> object has <tt class="docutils literal"><span class="pre">navigate(path)</span></tt> method which can be used to
+transition to a different route:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">routing</span><span class="o">.</span><span class="n">navigate</span><span class="p">(</span><span class="s">&#39;/users/john&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that this requires you to keep a reference to a global <tt class="docutils literal"><span class="pre">routing</span></tt> object.
+This isn&#8217;t a bad thing per se but for some reason it can be inconvenient.</p>
+<p>Another approach to programmatic navigation is to use <tt class="docutils literal"><span class="pre">RoutingContextMixin</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre>var MyComponent = React.createClass({
+  mixins: [RoutingContextMixin],
+
+  someMethod: function() {
+    this.navigate(&#39;/users/john&#39;)
+  }
+
+})
+</pre></div>
+</div>
+<p>This mixin makes <tt class="docutils literal"><span class="pre">navigate(path)</span></tt> method available to a component.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data-fetching.html" class="btn btn-neutral float-right" title="Data-fetching"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="routing-configuration.html" class="btn btn-neutral" title="Routing configuration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Andrey Popp.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/bundle.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

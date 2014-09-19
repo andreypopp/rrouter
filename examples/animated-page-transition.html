@@ -1,0 +1,487 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Animated page transition example &mdash; rrouter 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/overrides.css" type="text/css" />
+  
+    <link rel="top" title="rrouter 0.1.0 documentation" href="../index.html"/>
+        <link rel="up" title="Examples" href="index.html"/>
+        <link rel="next" title="Master-detail example" href="master-detail.html"/>
+        <link rel="prev" title="Examples" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> rrouter</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">RRouter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../usage.html#with-commonjs">With CommonJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage.html#with-amd">With AMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage.html#by-including-rrouter-with-script-element">By including RRouter with &lt;script&gt; element</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../routing-configuration.html">Routing configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../routing-configuration.html#parameters-in-url-pattern">Parameters in URL pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routing-configuration.html#passing-arbitrary-props-to-a-view">Passing arbitrary props to a view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routing-configuration.html#nested-routes">Nested routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routing-configuration.html#named-routes">Named routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routing-configuration.html#promise-props">Promise-props</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../navigation.html">Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../navigation.html#using-link-component">Using <tt class="docutils literal"><span class="pre">&lt;Link&gt;</span></tt> component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../navigation.html#using-programmatic-navigation">Using programmatic navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data-fetching.html">Data-fetching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data-fetching.html#basic-usage">Basic usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-fetching.html#handling-dependencies-between-data">Handling dependencies between data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-fetching.html#relevant-examples">Relevant examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../composing-routes.html">Composing routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-side-rendering.html">Server-side rendering</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Animated page transition example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master-detail.html">Master-detail example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../related-work.html">Related work</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">rrouter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Examples</a> &raquo;</li>
+      
+    <li>Animated page transition example</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/examples/animated-page-transition.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="animated-page-transition-example">
+<h1>Animated page transition example<a class="headerlink" href="#animated-page-transition-example" title="Permalink to this headline">¶</a></h1>
+<p>This example demonstrates how to implement animated transitions between routes.</p>
+<p>Because RRouter isolates routing in one place, this example doesn&#8217;t actually
+demonstrates any unique RRouter feature. Instead animated transition is
+implemented using <a class="reference external" href="http://facebook.github.io/react/docs/animation.html">CSSTransitionGroup</a>, an official addon for doing animations
+with React.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div style="margin-bottom: 1em;" id="example-host"></div>
+<style>
+  .App {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+  }
+  .AboutPage, .MainPage {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .AboutPage {
+    background: #60d7a9;
+  }
+
+  .MainPage {
+    background: #0ac2d2;
+  }
+  .moveUp-enter {
+    position: absolute;
+
+    -webkit-transition-duration: .3s;
+    -moz-transition-duration: .3s;
+    -ms-transition-duration: .3s;
+    -o-transition-duration: .3s;
+    transition-duration: .3s;
+
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    -ms-transition-property: -ms-transform, opacity;
+    -o-transition-property: -o-transform, opacity;
+    transition-property: transform, opacity;
+
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -ms-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+
+    -webkit-transform: translate3d(0,100%,0);
+    -moz-transform: translate3d(0,100%,0);
+    -ms-transform: translate3d(0,100%,0);
+    -o-transform: translate3d(0,100%,0);
+    transform: translate3d(0,100%,0);
+
+    z-index: 10000;
+  }
+
+  .moveUp-enter.moveUp-enter-active {
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+
+  .moveUp-leave {
+    position: absolute;
+
+    -webkit-transition-duration: .3s;
+    -moz-transition-duration: .3s;
+    -ms-transition-duration: .3s;
+    -o-transition-duration: .3s;
+    transition-duration: .3s;
+
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    -ms-transition-property: -ms-transform, opacity;
+    -o-transition-property: -o-transform, opacity;
+    transition-property: transform, opacity;
+
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -ms-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+
+    opacity: 1;
+  }
+
+  .moveUp-leave.moveUp-leave-active {
+    -webkit-transform: translate3d(0,-15%,0);
+    -moz-transform: translate3d(0,-15%,0);
+    -ms-transform: translate3d(0,-15%,0);
+    -o-transform: translate3d(0,-15%,0);
+    transform: translate3d(0,-15%,0);
+
+    opacity: 0.3;
+  }
+</style></div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>First we need some styles specific for the example:</p>
+<div class="highlight-python"><div class="highlight"><pre>.App {
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+}
+
+.AboutPage, .MainPage {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.AboutPage {
+  background: #60d7a9;
+}
+
+.MainPage {
+  background: #0ac2d2;
+}
+</pre></div>
+</div>
+<p>Now we describe our animated transition in CSS with CSS transitions (see
+documentation on <cite>CSSTransitionGroup_</cite> for details):</p>
+<div class="highlight-python"><div class="highlight"><pre>.moveUp-enter {
+  transition-duration: .3s;
+  transition-property: transform, opacity;
+  transition-timing-function: ease-out;
+  transform: translate3d(0,100%,0);
+  z-index: 10000;
+}
+
+.moveUp-enter.moveUp-enter-active {
+  transform: translate3d(0,0,0);
+}
+
+.moveUp-leave {
+  transition-duration: .3s;
+  transition-property: transform, opacity;
+  transition-timing-function: ease-out;
+  transform: translate3d(0,0,0);
+  opacity: 1;
+}
+
+.moveUp-leave.moveUp-leave-active {
+  transform: translate3d(0,-15%,0);
+  opacity: 0.3;
+}
+</pre></div>
+</div>
+<p>The required requires:</p>
+<div class="highlight-python"><div class="highlight"><pre>var React = require(&#39;react&#39;)
+var CSSTransitionGroup = React.addons.CSSTransitionGroup
+var cloneWithProps = React.addons.cloneWithProps
+
+var RRouter = require(&#39;rrouter&#39;)
+var Routes = RRouter.Routes
+var Route = RRouter.Route
+var Link = RRouter.Link
+</pre></div>
+</div>
+<p>and pages:</p>
+<div class="highlight-python"><div class="highlight"><pre>var MainPage = React.createClass({
+
+  render: function() {
+    return (
+      &lt;div className=&quot;MainPage&quot;&gt;
+        &lt;h5&gt;Main Page&lt;/h5&gt;
+        &lt;Link to=&quot;about&quot;&gt;Go to about page&lt;/Link&gt;
+      &lt;/div&gt;
+    )
+  }
+})
+
+var AboutPage = React.createClass({
+
+  render: function() {
+    return (
+      &lt;div className=&quot;AboutPage&quot;&gt;
+        &lt;h5&gt;About Page&lt;/h5&gt;
+        &lt;Link to=&quot;main&quot;&gt;Go to main page&lt;/Link&gt;
+      &lt;/div&gt;
+    )
+  }
+})
+</pre></div>
+</div>
+<p>Now the interesting part is that we don&#8217;t render matched views directly into DOM
+but instead wrap it into <tt class="docutils literal"><span class="pre">App</span></tt> component which is implemented using
+<tt class="docutils literal"><span class="pre">CSSTransitionGroup</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre>var App = React.createClass({
+
+  render: function() {
+    return (
+      &lt;CSSTransitionGroup className=&quot;App&quot; transitionName=&quot;moveUp&quot; component={React.DOM.div}&gt;
+        {cloneWithProps(this.props.children, {key: this.props.path})}
+      &lt;/CSSTransitionGroup&gt;
+    )
+  }
+})
+
+var routes = (
+  &lt;Routes&gt;
+    &lt;Route name=&quot;main&quot; path=&quot;/&quot; view={MainPage} /&gt;
+    &lt;Route name=&quot;about&quot; path=&quot;/about&quot; view={AboutPage} /&gt;
+  &lt;/Routes&gt;
+)
+
+RRouter.HashRouting.start(routes, function(view, match) {
+  var app = &lt;App path={match.path}&gt;{view}&lt;/App&gt;
+  React.renderComponent(app, document.getElementById(&#39;example-host&#39;))
+})
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script>
+    window.addEventListener("DOMContentLoaded", function() {
+    var React = require('react')
+var CSSTransitionGroup = React.addons.CSSTransitionGroup
+var cloneWithProps = React.addons.cloneWithProps
+
+var RRouter = require('rrouter')
+var Routes = RRouter.Routes
+var Route = RRouter.Route
+var Link = RRouter.Link
+var MainPage = React.createClass({displayName: 'MainPage',
+
+  render: function() {
+    return (
+      React.DOM.div({className: "MainPage"}, 
+        React.DOM.h5(null, "Main Page"), 
+        Link({to: "about"}, "Go to about page")
+      )
+    )
+  }
+})
+
+var AboutPage = React.createClass({displayName: 'AboutPage',
+
+  render: function() {
+    return (
+      React.DOM.div({className: "AboutPage"}, 
+        React.DOM.h5(null, "About Page"), 
+        Link({to: "main"}, "Go to main page")
+      )
+    )
+  }
+})
+var App = React.createClass({displayName: 'App',
+
+  render: function() {
+    return (
+      CSSTransitionGroup({className: "App", transitionName: "moveUp", component: React.DOM.div}, 
+        cloneWithProps(this.props.children, {key: this.props.path})
+      )
+    )
+  }
+})
+
+var routes = (
+  Routes(null, 
+    Route({name: "main", path: "/", view: MainPage}), 
+    Route({name: "about", path: "/about", view: AboutPage})
+  )
+)
+
+RRouter.HashRouting.start(routes, function(view, match) {
+  var app = App({path: match.path}, view)
+  React.renderComponent(app, document.getElementById('example-host'))
+})
+    });
+    </script>
+    
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="master-detail.html" class="btn btn-neutral float-right" title="Master-detail example"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Examples"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Andrey Popp.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/bundle.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
