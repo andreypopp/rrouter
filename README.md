@@ -1,5 +1,7 @@
 # rrouter
 
+**Note:** This project is no longer maintained. Use [react-router](https://github.com/rackt/react-router) instead. It is much better.
+
 RRouter is a declarative routing layer for React applications.
 
 The usage is as simple as:
